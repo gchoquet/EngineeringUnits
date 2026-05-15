@@ -36,6 +36,7 @@ Conceptually adjacent to F#'s units of measure, Python's `pint`, and C++'s `boos
 - **Dimensionless quantities** — Reynolds, Mach, Froude, Prandtl, etc., recognized when arithmetic results in a dimensionless ratio with a known physical interpretation.
 - **Approachable XML documentation** for every public member, suitable for DocFX or Sandcastle help generation.
 - **Round-trippable serialization** — a quantity persists to a single string (e.g. `"5.5 ft"`) that fully reconstructs the value, unit, and precision metadata.
+- **Tests as a first-class deliverable.** Every public member has unit tests; every conversion factor is verified against an authoritative reference; every arithmetic invariant (commutativity, associativity, identity, roundtrip) is property-checked. See §12 for the testing strategy.
 
 ### Non-goals (v1)
 
@@ -366,7 +367,7 @@ Format string codes:
 | `D` | Dual display — `5.5 ft (1.676 m)` |
 | `S` | SI canonical — `1.676 m` |
 | `U` | US-customary canonical — `5.5 ft` |
-| `P` | Preferred — consults `DefaultPreferences.GetPreferred(dimension)` (see Decision 13.17) |
+| `P` | Preferred — consults `DefaultPreferences.GetPreferred(dimension)` (see Decision 14.17) |
 | `E` | Engineering scientific — `5.500e0 ft` |
 | `N{n}` | Force `n` significant figures — `N6` → `5.50000 ft` |
 | `{unit}` | Force a specific unit — `{m}` → `1.676 m` |
@@ -602,64 +603,202 @@ Achieving this drives several design choices: the `DimensionSignature` is a `str
 
 ---
 
-## 12. Implementation phases
+## 12. Testing strategy
 
-Loose ordering, not commitments.
+Tests are part of every phase. No phase is "done" until its acceptance tests are written and green. The CI gate (GitHub Actions, see §14.13) runs all tests on every PR and push; coverage reports are surfaced in PR comments.
+
+### 12.1 Frameworks
+
+| Layer | Framework | Purpose |
+|---|---|---|
+| Unit tests | **xUnit** (latest) | Standard cases, edge cases, exception paths. One test class per production class. |
+| Property-based tests | **FsCheck.Xunit** | Verify arithmetic invariants over generated inputs (commutativity, associativity, roundtrip). One generator per quantity subclass. |
+| Performance benchmarks | **BenchmarkDotNet** | Track parse / arithmetic / format throughput against the §11.3 budget. Runs in CI but only fails on regression > 20%. |
+| Conversion-correctness | **xUnit** with reference data files | Each conversion factor verified against NIST tables / ISO 80000 / authoritative industry references. |
+| Coverage | **Coverlet** + **ReportGenerator** | Line + branch coverage. Targets: ≥ 90% line, ≥ 80% branch on `src/EngineeringUnits/`. |
+
+Test project lives at `tests/EngineeringUnits.Tests/`. A single `dotnet test` invocation runs everything. Benchmarks live in `tests/EngineeringUnits.Benchmarks/` and are invoked separately (`dotnet run -c Release --project tests/EngineeringUnits.Benchmarks`).
+
+### 12.2 Test categories
+
+**Unit tests (xUnit)** — one test class per production class. Naming convention: `ClassNameTests`. Methods named `Verb_When_Then` or simply `Verb`. Each test asserts a single behavior. Examples:
+
+```csharp
+public class LengthTests
+{
+    [Fact] public void Constructor_AcceptsSimpleUnit()        { /* new Length(5, "ft") */ }
+    [Fact] public void Constructor_AcceptsSIPrefixedUnit()    { /* new Length(5, "km")  */ }
+    [Fact] public void Constructor_RejectsWrongDimensionUnit() { /* throws */ }
+
+    [Theory]
+    [InlineData(5.0, "ft",  1.524,  "m")]
+    [InlineData(1.0, "in",  0.0254, "m")]
+    [InlineData(1.0, "mi",  1609.344, "m")]
+    public void As_ConvertsToTargetUnit(double v, string fromUnit, double expected, string toUnit) { ... }
+}
+```
+
+**Property-based tests (FsCheck.Xunit)** — verify arithmetic invariants over randomly generated quantities. Single generator per subclass produces arbitrary-but-valid `Length`, `Mass`, etc. Invariants checked:
+
+```csharp
+[Property] public Property AdditionIsCommutative_WithinTolerance(Length a, Length b)
+{
+    var lhs = (a + b).In("m").Value;
+    var rhs = (b + a).In("m").Value;
+    return (Math.Abs(lhs - rhs) < 1e-12).ToProperty();
+}
+
+[Property] public Property ParseFormatRoundtrips(Length q)
+{
+    var s = q.ToString();
+    var parsed = Length.Parse(s);
+    return q.Equals(parsed, tolerance: 1e-9).ToProperty();
+}
+
+[Property] public Property SubtractInverse(Length q)
+{
+    var zero = q - q;
+    return (Math.Abs(zero.In(q.DisplayUnit.Symbol).Value) < 1e-12).ToProperty();
+}
+
+[Property] public Property ConversionRoundtrip(Length q, string targetUnit)
+{
+    if (!Unit.IsLengthUnit(targetUnit)) return true.ToProperty();
+    var roundtripped = q.In(targetUnit).In(q.DisplayUnit.Symbol);
+    return (Math.Abs(roundtripped.Value - q.Value) < 1e-9 * q.Value).ToProperty();
+}
+```
+
+Invariants to cover for every subclass:
+- **Identity**: `q + zero == q`
+- **Inverse**: `q - q == zero(q)`
+- **Commutativity**: `a + b == b + a` (within float tolerance)
+- **Associativity**: `(a + b) + c == a + (b + c)` (within float tolerance × magnitude)
+- **Parse/Format roundtrip**: `Parse(q.ToString()) == q`
+- **Conversion roundtrip**: `q.In(u1).In(u2).In(u1).Value ≈ q.Value` for any two units of the same dimension
+- **Left-operand-wins**: `(a + b).DisplayUnit == a.DisplayUnit` (Decision 14.4 verified)
+- **Multiplication dimension addition**: dimensions of `a * b` equal element-wise sum of `a.Dimension` and `b.Dimension`
+
+**Conversion-correctness tests** — for every unit in the catalog, the conversion factor to SI base is verified against an authoritative reference. Reference values live in `tests/EngineeringUnits.Tests/ReferenceData/`, one CSV per dimension (`length.csv`, `pressure.csv`, etc.) sourced from:
+
+- NIST Special Publication 811 (Guide for the Use of the International System of Units)
+- ISO 80000 standard examples
+- GPSA Engineering Data Book (for MMSCFD and gas-industry units specifically)
+- BIPM SI brochure (for SI base + derived definitions)
+
+CSV format:
+```
+unit,quantity,value_in_si_base,tolerance_pct,source
+ft,length,0.3048,0,NIST SP 811 Appendix B
+in,length,0.0254,0,NIST SP 811 Appendix B
+psi,pressure,6894.757293168,1e-9,NIST SP 811 Appendix B
+MMSCFD,volumetric_flow,0.327741,1e-4,GPSA Engineering Data Book (14.73 psia / 60 °F basis)
+```
+
+A single `[Theory]` test driven by `[MemberData]` enumerates all rows and asserts each conversion.
+
+**Performance benchmarks (BenchmarkDotNet)** — track the §11.3 budget. Failing the budget by more than 20% fails CI:
+
+```csharp
+[Benchmark] public Length ParseLength() => Length.Parse("5 ft");
+[Benchmark] public Length AddLengths()  => _a + _b;
+[Benchmark] public string FormatLength()=> _a.ToString();
+```
+
+### 12.3 Coverage targets
+
+- **Line coverage**: ≥ 90% on `src/EngineeringUnits/`. CI fails below the threshold.
+- **Branch coverage**: ≥ 80%.
+- **Exception paths**: every documented exception must have at least one test that triggers it.
+- **Catalog coverage**: every unit in the catalog must appear in at least one conversion-correctness test row.
+
+### 12.4 What NOT to test
+
+To keep the test suite useful and fast:
+
+- **No tests for trivial property setters/getters** — those are exercised by behavior tests anyway.
+- **No tests for code that delegates to the .NET BCL** — `double.ToString` doesn't need our test coverage.
+- **No exhaustive enumeration of SI-prefixed combinations** — testing `km`, `Mg`, `μs` proves the prefix machinery works; testing every prefix × every base is busywork.
+
+### 12.5 Test data conventions
+
+- Reference values in CSV (above), not hardcoded in test methods, so a unit catalog audit can read the CSV directly.
+- Floating-point comparisons use relative tolerance, never `==`. Default tolerance: `1e-9` for conversions, `1e-12` for arithmetic identities.
+- No random seeds in property tests — FsCheck uses fresh seeds each run, so flakiness surfaces as actual property violations.
+- Test fixtures (e.g. a pre-built `Pressure` instance reused by multiple tests) live in static fields on the test class, not in test setup methods, to keep test methods self-contained.
+
+---
+
+## 13. Implementation phases
+
+Loose ordering, not commitments. Each phase's deliverables include the listed code AND the tests that prove it. No phase is "complete" until both halves ship.
 
 ### Phase 1 — Core (MVP)
-- `EngineeringUnit` base, `DimensionSignature`, `Unit` struct
-- Length, Mass, Time, Temperature subclasses with SI + US customary + common SI-prefixed units
-- Addition, subtraction, scalar mul/div, equality, comparison
-- `Parse`, `TryParse`, `ToString` (default format)
-- Basic exceptions
+**Code**: `EngineeringUnit` base, `DimensionSignature`, `Unit` struct, `UnitCatalog`. Length, Mass, Time, Temperature subclasses with SI + US customary + common SI-prefixed units. Addition, subtraction, scalar mul/div, equality, comparison. `Parse`, `TryParse`, `ToString` (default format). Basic exceptions.
+
+**Tests**:
+- Unit tests for every public member (constructor, `As`, `In`, operators, `Parse`, `TryParse`, `ToString`)
+- Property tests for arithmetic invariants on each subclass
+- Conversion-correctness CSV covering every Phase-1 unit
+- Exception-path tests for `DimensionMismatchException`, `UnknownUnitException`, `UnitParseException`
+- Coverage gates active: ≥ 90% line / ≥ 80% branch on `src/EngineeringUnits/`
 
 ### Phase 2 — Derived quantities
-- Area, Volume, Velocity, Acceleration, Force, Pressure, Energy, Power, MassFlowRate, VolumetricFlowRate, Density
-- Cross-type multiplication and division operator overloads
-- `DerivedUnit` fallback
-- `Pow`, `Abs`
+**Code**: Area, Volume, Velocity, Acceleration, Force, Pressure, Energy, Torque, Power, AngularVelocity, Frequency, MassFlowRate, VolumetricFlowRate, Density. Cross-type operator overloads (`Force * Length → Torque`, `Length * Force → Energy`, etc.). `DerivedUnit` fallback. `Pow`, `Abs`.
+
+**Tests**:
+- Unit tests for each new subclass
+- Cross-type multiplication tests (`Force * Length` returns `Torque`, `Length * Force` returns `Energy`)
+- `DerivedUnit` fallback tests (unusual combinations don't crash)
+- Property test: `(a * b).Dimension == a.Dimension + b.Dimension` (element-wise)
+- Property test: `q.Pow(2).Pow(0.5)` roundtrips to `q.Abs()` within tolerance
 
 ### Phase 3 — Display polish
-- Format string codes (`G`, `L`, `D`, `S`, `U`, `E`, `N{n}`, `{unit}`)
-- `ToDualString`
-- Culture-aware decimal separator
-- Long-format unit names
+**Code**: Format string codes (`G`, `L`, `D`, `S`, `U`, `P`, `E`, `N{n}`, `{unit}`). `ToDualString`. Culture-aware decimal separator. Long-format unit names. `UnitPreferences` with built-in profiles and Caret/Unicode notation toggle.
 
-### Phase 4 — ExcelDNA integration
-- `EngineeringUnits.ExcelDNA.xll`
-- All UDFs from Section 11.2
-- Function wizard help text
+**Tests**:
+- Format code coverage: each of `G L D S U P E` exercised for each Phase-1/2 subclass
+- Culture tests using `de-DE`, `fr-FR`, `en-US` for decimal separator behavior
+- `UnitPreferences` profile tests: each built-in profile produces expected output for representative quantities
+- Caret/Unicode notation toggle test: same quantity displayed both ways
 
-### Phase 5 — Dimensionless and industry units
-- `DimensionlessQuantity` with interpretation hints
-- MMSCFD, bbl, cP, cSt, MMBTU, Da and other industry composites
-- Reynolds/Mach/Froude/etc. display symbols
+### Phase 4 — Dimensionless and industry units
+**Code**: `DimensionlessQuantity` with interpretation hints. MMSCFD (with 14.73 / 14.696 / IUPAC variants and parametric form), bbl, cP, cSt, MMBTU, Da. Reynolds/Mach/Froude/etc. display symbols.
 
-### Phase 6 — Documentation and packaging
-- XML doc comments on every public member
-- DocFX or Sandcastle output → static help site
-- NuGet packaging
-- Sample workbook with ExcelDNA UDFs in action
+**Tests**:
+- MMSCFD conversion correctness for all three variants (CSV rows)
+- Mixing MMSCFD variants produces correct results in left-operand's reference conditions
+- Industry composite parsing (bbl, MMSCFD, cP, etc.) roundtrips through `Parse`/`ToString`
+- Dimensionless interpretation tagging: `ratio.PreferredInterpretation = "Mach"` renders as `"Ma"`
 
-### Future
+### Phase 5 — Documentation and packaging
+**Code**: XML doc comments on every public member (compiler warnings as errors on missing docs). DocFX project + GitHub Pages deploy. NuGet `.nupkg` with symbols and source link.
+
+**Tests**:
+- Doc-completeness test: a build-time check fails if any public member lacks XML docs
+- NuGet package smoke test: a separate test project consumes the packed `.nupkg` and runs a basic operation
+- DocFX build runs clean (no broken links, no missing references) — verified in CI
+
+### Future (out of scope for v1)
 - Localized unit names (resource files per culture)
 - Uncertainty propagation (`±` model)
 - Visual Studio analyzer warning on suspicious patterns (e.g. unitless `double` passed where a quantity is expected)
+- Solid angle (steradian) as 9th tracked pseudo-dimension
 - gRPC-friendly proto definitions for quantity serialization
 
 ---
 
-## 13. Design decisions
+## 14. Design decisions
 
 Decisions made deliberately. Revisit any of these only with intent.
 
-### 13.1 Target framework
+### 14.1 Target framework
 **Decision**: `.NET Standard 2.0` for the core library; `.NET 8` for the ASP.NET Core sample and the ExcelDNA loader.
 
 - .NET Standard 2.0 is consumable from both .NET Framework 4.7.2+ and modern .NET 6+. ExcelDNA's modern loader supports both runtimes; the library doesn't pick.
 - Where modern .NET features would be nice (records, `init`, nullable reference types), we use language version 10+ with `LangVersion` set in the .csproj — the language features compile to .NET Standard 2.0 IL.
 
-### 13.2 Class hierarchy vs. generics
+### 14.2 Class hierarchy vs. generics
 **Decision**: Class hierarchy (subclasses per dimension), not F#-style generics.
 
 - VBA conversion patterns produce flat classes, not generic types
@@ -667,77 +806,77 @@ Decisions made deliberately. Revisit any of these only with intent.
 - Operator overloads are simpler to declare and discover on concrete classes
 - The cost — `DerivedUnit` exists for arbitrary combinations — is mild
 
-### 13.3 Internal representation
+### 14.3 Internal representation
 **Decision**: canonical SI value (`double`) + display unit reference + dimension signature.
 
 - Always storing canonical SI makes equality, comparison, and arithmetic trivial
 - `double` is the right precision for engineering (15–17 sig figs; sig-fig display caps below that)
 - Carrying the display unit lets arithmetic preserve the left-operand convention
 
-### 13.4 Mixed-unit addition rule
+### 14.4 Mixed-unit addition rule
 **Decision**: result uses the left operand's display unit.
 
 - Taken from the docx draft
 - Convention matches `pint` and `boost::units`
 - Predictable for the user; no "smart" guess required
 
-### 13.5 Notation grammar
+### 14.5 Notation grammar
 **Decision**: `*`, `/`, `^` as primary; trailing exponent-without-caret (`ft3` for `ft^3`) and dash-style (`ft-s-1` for `ft/s`) as accepted alternates.
 
 - Primary form matches ISO 80000 and most engineering print
 - Alternates accommodate VBA-origin code and the original docx convention
 
-### 13.6 Case sensitivity
+### 14.6 Case sensitivity
 **Decision**: case-sensitive by default. `TryParseLoose` available for end-user input.
 
 - `M` (mega) vs `m` (meter) is the canonical example
 - Strict parsing in code; lenient parsing at user-input boundaries
 
-### 13.7 Operator overloading on the base class
+### 14.7 Operator overloading on the base class
 **Decision**: declared on `EngineeringUnit` as a fallback, overridden on subclasses where strongly-typed return is possible.
 
 - `Length + Length → Length` (typed; declared on `Length`)
 - `Length + Time` (statically typed) → compile error
 - `EngineeringUnit a + EngineeringUnit b` (dynamically typed) → runtime `DimensionMismatchException` if dimensions mismatch
 
-### 13.8 Significant figures vs uncertainty
+### 14.8 Significant figures vs uncertainty
 **Decision**: significant figures only in v1. Uncertainty (`±`) deferred to v2 if demand exists.
 
 - Sig figs cover 95% of report-formatting needs
 - Full uncertainty propagation is a significantly larger design space
 
-### 13.9 Temperature
+### 14.9 Temperature
 **Decision**: temperatures carry an `Offset` in the `Unit` struct, applied during conversion. `°C` and `°F` and `°R` and `K` all share dimension `[Θ]` but differ in offset+scale.
 
 - Addition of temperature **deltas** uses linear conversion only (60°C + 5°C delta = 65°C). Care taken in the API to avoid the classic "add two absolute temperatures" trap by exposing `TemperatureDelta` as a distinct typed wrapper for differences.
 
-### 13.10 Dimensionless interpretation
+### 14.10 Dimensionless interpretation
 **Decision**: never auto-inferred. User opts in via `PreferredInterpretation`.
 
 - Many velocity ratios are not Mach numbers
 - Many length-to-length ratios are not strain
 - Heuristics here would produce wrong-looking output more often than helpful output
 
-### 13.11 Documentation tooling
+### 14.11 Documentation tooling
 **Decision**: XML doc comments on every public member, generated docs via DocFX.
 
 - DocFX is current and actively maintained (vs. Sandcastle which is largely unmaintained)
 - Sandcastle output is still supported if you'd rather stay on it — XML comments are the same input either way
 
-### 13.12 MMSCFD condition defaults
+### 14.12 MMSCFD condition defaults
 **Decision**: bare `MMSCFD` defaults to 14.73 psia / 60 °F (GPSA / AGA interstate-pipeline standard). Other conditions are named-alias variants (`MMSCFD_petro` for 14.696 psia, `MMSCFD_iupac` for 100 kPa/0 °C) or parametric (`MMSCFD@<psia>`).
 
 - Most users in scope (interstate gas pipeline operators) expect 14.73 psia
 - Explicit alternates avoid silent surprises for petroleum / non-US contexts
 - The parametric form handles edge cases (e.g. some Canadian operators use 14.65 psia) without requiring catalog additions
 
-### 13.13 Value and unit are separable
+### 14.13 Value and unit are separable
 **Decision**: the library exposes `Value` and `DisplayUnit` as independent public properties. The string form (`"5.5 ft"`) is round-trippable but is not the only access pattern.
 
 - Required to enable the Excel adjacent-cells convention without ugly string parsing in hot paths
 - Useful for any downstream that wants to serialize value and unit separately (JSON `{"value": 5.5, "unit": "ft"}`, gRPC message fields, database columns)
 
-### 13.14 Torque vs energy disambiguation
+### 14.14 Torque vs energy disambiguation
 **Decision**: `Torque` and `Energy` are distinct subclasses. Both have fundamental dimension `M·L²/T²`. Resolution rules:
 
 - **Parsing** uses display-unit order convention: `lbf*ft` → `Torque`, `ft*lbf` → `Energy`. The first token is the "primary" dimension.
@@ -747,7 +886,7 @@ Decisions made deliberately. Revisit any of these only with intent.
 
 This is a notation-driven distinction (the dimensions truly are identical), so the library defers to the user's expressed intent and never auto-converts between the two.
 
-### 13.15 Angle as a tracked pseudo-dimension
+### 14.15 Angle as a tracked pseudo-dimension
 **Decision**: angle (radians) is tracked as a 9th slot in `DimensionSignature`, separate from the 8 SI base dimensions plus the seven SI-base + temperature.
 
 Wait — re-stating to avoid the off-by-one:
@@ -760,7 +899,7 @@ Tracking angle as a pseudo-dimension lets the library distinguish frequency (`1/
 
 A future v2 may add solid angle (steradian) as a 9th slot if demand exists; v1 ignores it.
 
-### 13.17 Preferred units are per-dimension, not per-system
+### 14.17 Preferred units are per-dimension, not per-system
 
 **Decision**: a `UnitPreferences` map associates each dimension with the user's preferred unit. There is no binary "SI vs US customary" toggle.
 
@@ -796,7 +935,7 @@ public enum NotationStyle
 }
 ```
 
-Preferences only affect **display when explicitly requested** — they never override the left-operand-wins rule (Decision 13.4) for arithmetic results' implicit unit. To use preferences:
+Preferences only affect **display when explicitly requested** — they never override the left-operand-wins rule (Decision 14.4) for arithmetic results' implicit unit. To use preferences:
 
 ```csharp
 EngineeringUnit.DefaultPreferences = UnitPreferences.OilAndGas;
@@ -819,7 +958,7 @@ Per-call overrides via `.In("km")` always win over preferences — the user can 
 
 `DefaultPreferences` is `[ThreadStatic]`-attributed: in ASP.NET Core or multithreaded hosts, each thread gets its own preferences, and one request setting a profile doesn't bleed into another. (Library default is `UnitPreferences.SIScientific`.)
 
-### 13.18 Recognize compound-unit aliases when possible
+### 14.18 Recognize compound-unit aliases when possible
 
 **Decision**: when arithmetic produces a quantity whose dimension matches a registered single-symbol unit, prefer the single-symbol form for display.
 
@@ -829,13 +968,14 @@ Examples:
 - `Force / Area` (`N / m²`) → display as `Pa`
 
 Recognition is **dimensional**, subject to the disambiguations already locked in:
-- Same-dimension subclasses stay distinct (Decision 13.14: Torque vs Energy never collapse into each other).
-- The Caret/Unicode notation style (Decision 13.17) applies to the recognized form.
+- Same-dimension subclasses stay distinct (Decision 14.14: Torque vs Energy never collapse into each other).
+- The Caret/Unicode notation style (Decision 14.17) applies to the recognized form.
 - The result inherits its display-unit *system* from the left operand: `Mass(kg) * Acceleration(m/s²)` → `N`, but `Mass(lbm) * Acceleration(ft/s²)` → `lbf` (the US-customary force unit), not `N`.
 
 If no registered alias matches the dimension, the library falls back to the expanded compound expression (`kg·m·s⁻²`) using the current notation style. Recognition is best-effort, not contractual — a user who needs a specific display form should call `.In("...")` explicitly.
 
-### 13.16 Open core / dual-licensing
+### 14.16 Open core / dual-licensing
+
 **Decision**: the `EngineeringUnits` core library is **MIT-licensed**. Integration assemblies (ExcelDNA UDFs, etc.) are **separate projects under separate (proprietary) licenses** that consume `EngineeringUnits` as a NuGet dependency.
 
 - Core library is in its own GitHub repository with `LICENSE` (MIT)
@@ -843,31 +983,45 @@ If no registered alias matches the dimension, the library falls back to the expa
 - Integration assemblies reference the core via NuGet, not source-level inclusion — keeps the license boundary clean
 - This is the canonical open-core model (GitLab CE/EE, Elastic, Confluent, etc.); see [TermsFeed: Dual Licensing vs. Open Core](https://www.termsfeed.com/blog/dual-licensing-vs-open-core/) and [Wikipedia: Open-core model](https://en.wikipedia.org/wiki/Open-core_model) for the broader pattern
 
+### 14.19 Test frameworks: xUnit + FsCheck + BenchmarkDotNet
+
+**Decision**: standardize on **xUnit** for unit tests, **FsCheck.Xunit** for property-based tests, and **BenchmarkDotNet** for performance benchmarks. Coverage via **Coverlet** + **ReportGenerator**.
+
+- **xUnit** is the dominant .NET test framework in modern projects (Microsoft's own SDK templates default to it), well-supported by Rider, VS, and `dotnet test`. `[Fact]` / `[Theory]` / `[InlineData]` cover the standard cases cleanly.
+- **FsCheck.Xunit** integrates property-based tests into the same `dotnet test` run via `[Property]`. Critical for verifying arithmetic invariants (commutativity, associativity, roundtrip) without enumerating cases by hand. The few minutes of test runtime is a fair trade for the bug class it catches.
+- **BenchmarkDotNet** is the standard for .NET microbenchmarking — handles warmup, statistical analysis, and result formatting. We use it to track the §11.3 performance budget (parse ≤ 1 µs, arithmetic ≤ 0.5 µs).
+- **Coverlet** + **ReportGenerator** produce line/branch coverage as part of the build; CI publishes the report as a PR comment and fails on regression past the §12.3 thresholds.
+
+Alternatives considered:
+- **MSTest** — Microsoft's older framework; works but less idiomatic in the modern .NET community. Skip.
+- **NUnit** — fine framework, similar capabilities. Picking xUnit only because it's slightly more common in new .NET projects and the FsCheck integration story is well-trodden.
+- **Property-based testing without FsCheck** (just generating values in `[Theory]` data) — possible but loses FsCheck's shrinking (finding the minimal failing case), which is the most valuable part.
+
 ---
 
-## 14. Open questions
+## 15. Open questions
 
 Things still unclear that need decisions before or during implementation. Best to surface these now.
 
-1. ~~**MMSCFD definition.**~~ **Resolved** in Decision 13.12 — default 14.73 psia / 60 °F, named alternates for other industries.
+1. ~~**MMSCFD definition.**~~ **Resolved** in Decision 14.12 — default 14.73 psia / 60 °F, named alternates for other industries.
 
 2. **VBA function inventory.** You mentioned having a VBA library that isn't critical at this point. If/when you want Phase 1 coverage to mirror what's already in your VBA codebase, share the `.bas` (or workbook) and I'll prioritize the unit-catalog additions accordingly.
 
 3. **Decimal vs double.** Default assumption is `double` (15–17 sig figs). Switching to `decimal` would cost performance and lose `Pow` support (decimal doesn't have it natively). Engineering use almost always wants `double`; flag this only if you have a specific decimal scenario.
 
-4. ~~**Per-instance preferred-unit override.**~~ **Resolved** in Decision 13.17 — preferences are a per-dimension map, not a system flag. Built-in profiles (`SIScientific`, `OilAndGas`, etc.) plus user customization, opt-in via `"P"` format code. Arithmetic still follows left-operand-wins regardless of preferences.
+4. ~~**Per-instance preferred-unit override.**~~ **Resolved** in Decision 14.17 — preferences are a per-dimension map, not a system flag. Built-in profiles (`SIScientific`, `OilAndGas`, etc.) plus user customization, opt-in via `"P"` format code. Arithmetic still follows left-operand-wins regardless of preferences.
 
-5. ~~**Excel cell format.**~~ **Resolved** in Decision 13.13 — value and unit are separable; Excel cells store the numeric value in one cell with the unit in an adjacent cell.
+5. ~~**Excel cell format.**~~ **Resolved** in Decision 14.13 — value and unit are separable; Excel cells store the numeric value in one cell with the unit in an adjacent cell.
 
-6. ~~**Negative-exponent display.**~~ **Resolved** in Decision 13.17 — `UnitPreferences.Notation` toggles between `NotationStyle.Caret` (`m/s^2`, the default) and `NotationStyle.Unicode` (`m·s⁻²`). Default profile uses Caret; `SIScientific` profile uses Unicode (matches ISO 80000 print convention); user can override on any profile.
+6. ~~**Negative-exponent display.**~~ **Resolved** in Decision 14.17 — `UnitPreferences.Notation` toggles between `NotationStyle.Caret` (`m/s^2`, the default) and `NotationStyle.Unicode` (`m·s⁻²`). Default profile uses Caret; `SIScientific` profile uses Unicode (matches ISO 80000 print convention); user can override on any profile.
 
-7. ~~**Compound display unit recognition.**~~ **Resolved** in Decision 13.18 — yes, recognize known aliases when the dimension matches, with the same disambiguation rules as Decision 13.14 (torque/energy stay distinct) and respect for the left-operand's unit system.
+7. ~~**Compound display unit recognition.**~~ **Resolved** in Decision 14.18 — yes, recognize known aliases when the dimension matches, with the same disambiguation rules as Decision 14.14 (torque/energy stay distinct) and respect for the left-operand's unit system.
 
 8. **Solid angle (steradian).** Not in v1. Add later if needed?
 
 9. **Operator chaining allocation pressure.** A chain like `(a + b - c) * d / e` allocates 4 intermediate instances. Worth a struct-based "QuantityBuilder" for hot paths in v1, or accept the GC pressure since the performance budget already factors in 1 allocation per op?
 
-10. ~~**Public release.**~~ **Resolved** in Decision 13.16 — core library MIT, integration assemblies separate.
+10. ~~**Public release.**~~ **Resolved** in Decision 14.16 — core library MIT, integration assemblies separate.
 
 11. **Repository layout.** Going with single-repo (`src/`, `tests/`, `samples/`, `docs/`) unless you flag otherwise — confirmed by the move-to-its-own-repo step.
 
@@ -877,7 +1031,7 @@ Things still unclear that need decisions before or during implementation. Best t
 
 ---
 
-## 15. References
+## 16. References
 
 ### Primary sources
 
@@ -915,7 +1069,7 @@ Things still unclear that need decisions before or during implementation. Best t
 
 ---
 
-## 16. License and distribution
+## 17. License and distribution
 
 ### Core library (this project)
 
