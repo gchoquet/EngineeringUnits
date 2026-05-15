@@ -1,0 +1,54 @@
+# ── Build outputs ─────────────────────────────────────────────────
+bin/
+obj/
+[Bb]uild[Ll]og.*
+*.binlog
+
+# ── Visual Studio ─────────────────────────────────────────────────
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.opensdf
+*.sdf
+
+# ── Rider / JetBrains ─────────────────────────────────────────────
+.idea/
+*.iml
+
+# ── VS Code ───────────────────────────────────────────────────────
+.vscode/
+
+# ── NuGet ─────────────────────────────────────────────────────────
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+project.lock.json
+project.fragment.lock.json
+
+# ── Test / coverage ───────────────────────────────────────────────
+[Tt]est[Rr]esult*/
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+coverage*.info
+*.lcov
+
+# ── DocFX ─────────────────────────────────────────────────────────
+_site/
+docs/api/.manifest
+docs/_site/
+
+# ── Backups / OS junk ─────────────────────────────────────────────
+*.bak
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Word lock files ───────────────────────────────────────────────
+~$*.docx
+~$*.doc
