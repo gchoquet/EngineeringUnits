@@ -1,0 +1,15 @@
+unit,value_in_meters,source
+m,1.0,SI base
+km,1000.0,SI prefix
+cm,0.01,SI prefix
+mm,0.001,SI prefix
+um,1e-6,SI prefix (ASCII alias)
+nm,1e-9,SI prefix
+Mm,1e6,SI prefix
+in,0.0254,NIST SP 811 Appendix B
+ft,0.3048,NIST SP 811 Appendix B
+yd,0.9144,NIST SP 811 Appendix B (3 ft)
+mi,1609.344,NIST SP 811 Appendix B (5280 ft)
+nmi,1852.0,IBWM (international nautical mile)
+fathom,1.8288,6 ft (NIST)
+furlong,201.168,660 ft (NIST)

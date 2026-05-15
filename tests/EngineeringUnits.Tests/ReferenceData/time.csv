@@ -1,0 +1,12 @@
+unit,value_in_seconds,source
+s,1.0,SI base
+ms,1e-3,SI prefix
+us,1e-6,SI prefix (ASCII alias)
+ns,1e-9,SI prefix
+min,60.0,SI accepted
+h,3600.0,SI accepted
+hr,3600.0,SI accepted (alternate symbol)
+day,86400.0,SI accepted
+week,604800.0,7 days
+year,31557600.0,Julian year (365.25 days)
+yr,31557600.0,Julian year alias

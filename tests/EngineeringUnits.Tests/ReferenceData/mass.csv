@@ -1,0 +1,11 @@
+unit,value_in_kg,source
+kg,1.0,SI base
+g,1e-3,SI prefix
+mg,1e-6,SI prefix
+t,1000.0,SI (metric tonne)
+lb,0.45359237,NIST SP 811 Appendix B (international avoirdupois pound)
+lbm,0.45359237,Identical to lb
+oz,0.028349523125,NIST SP 811 (lb / 16)
+slug,14.59390294,NIST SP 811 Appendix B
+ton,907.18474,NIST SP 811 (short ton = 2000 lb)
+lt,1016.0469088,NIST SP 811 (UK long ton = 2240 lb)
