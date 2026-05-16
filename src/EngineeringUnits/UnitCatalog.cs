@@ -50,6 +50,13 @@ namespace EngineeringUnits
             SeedEnergyDensity();
             SeedSpecificVolume();
             SeedAreaDensity();
+            SeedElectricCurrent();
+            SeedElectricCharge();
+            SeedVoltage();
+            SeedElectricResistance();
+            SeedElectricalConductance();
+            SeedElectricCapacitance();
+            SeedInductance();
             RegisterSubclasses();
         }
 
@@ -91,6 +98,14 @@ namespace EngineeringUnits
             // Note: EnergyDensity shares dim with Pressure (already registered); SpecificVolume:
             Internal.SubclassRegistry.Register(SpecificVolume.Dim,      "m^3/kg",   (u, cv) => new SpecificVolume(u, cv));
             Internal.SubclassRegistry.Register(AreaDensity.Dim,         "kg/m^2",   (u, cv) => new AreaDensity(u, cv));
+            // Tier C — Electrical
+            Internal.SubclassRegistry.Register(ElectricCurrent.Dim,        "A", (u, cv) => new ElectricCurrent(u, cv));
+            Internal.SubclassRegistry.Register(ElectricCharge.Dim,         "C", (u, cv) => new ElectricCharge(u, cv));
+            Internal.SubclassRegistry.Register(Voltage.Dim,                "V", (u, cv) => new Voltage(u, cv));
+            Internal.SubclassRegistry.Register(ElectricResistance.Dim,     "Ω", (u, cv) => new ElectricResistance(u, cv));
+            Internal.SubclassRegistry.Register(ElectricalConductance.Dim,  "S", (u, cv) => new ElectricalConductance(u, cv));
+            Internal.SubclassRegistry.Register(ElectricCapacitance.Dim,    "F", (u, cv) => new ElectricCapacitance(u, cv));
+            Internal.SubclassRegistry.Register(Inductance.Dim,             "H", (u, cv) => new Inductance(u, cv));
             // Dimensionless
             Internal.SubclassRegistry.Register(DimensionSignature.Dimensionless, "1", (u, cv) => new DimensionlessQuantity(u, cv));
             _ = R;
@@ -627,6 +642,89 @@ namespace EngineeringUnits
             Add("lb/ft^2", "pound per square-foot",     Ad, 0.45359237 / (0.3048 * 0.3048));
             Add("lb/ft²",  "pound per square-foot",     Ad, 0.45359237 / (0.3048 * 0.3048));
             Add("oz/yd^2", "ounce per square-yard",     Ad, 0.028349523125 / (0.9144 * 0.9144));
+        }
+
+        private static void SeedElectricCurrent()
+        {
+            var I = DimensionSignature.ElectricCurrent;
+            Add("A",  "ampere",      I, 1.0);
+            Add("mA", "milliampere", I, 1e-3);
+            Add("μA", "microampere", I, 1e-6);
+            Add("uA", "microampere", I, 1e-6);
+            Add("nA", "nanoampere",  I, 1e-9);
+            Add("kA", "kiloampere",  I, 1000.0);
+        }
+
+        private static void SeedElectricCharge()
+        {
+            // T * A
+            var Q = DimensionSignature.Time + DimensionSignature.ElectricCurrent;
+            Add("C",   "coulomb",      Q, 1.0);
+            Add("mC",  "millicoulomb", Q, 1e-3);
+            Add("μC",  "microcoulomb", Q, 1e-6);
+            Add("uC",  "microcoulomb", Q, 1e-6);
+            Add("nC",  "nanocoulomb",  Q, 1e-9);
+            Add("pC",  "picocoulomb",  Q, 1e-12);
+            Add("Ah",  "ampere-hour",  Q, 3600.0);
+            Add("mAh", "milliampere-hour", Q, 3.6);
+        }
+
+        private static void SeedVoltage()
+        {
+            // L^2 * M / (T^3 * A)
+            var V = DimensionSignature.Length * 2 + DimensionSignature.Mass - DimensionSignature.Time * 3 - DimensionSignature.ElectricCurrent;
+            Add("V",  "volt",       V, 1.0);
+            Add("mV", "millivolt",  V, 1e-3);
+            Add("μV", "microvolt",  V, 1e-6);
+            Add("uV", "microvolt",  V, 1e-6);
+            Add("kV", "kilovolt",   V, 1000.0);
+            Add("MV", "megavolt",   V, 1e6);
+        }
+
+        private static void SeedElectricResistance()
+        {
+            // L^2 * M / (T^3 * A^2)
+            var R = DimensionSignature.Length * 2 + DimensionSignature.Mass - DimensionSignature.Time * 3 - DimensionSignature.ElectricCurrent * 2;
+            Add("Ω",   "ohm",      R, 1.0);
+            Add("ohm", "ohm",      R, 1.0);
+            Add("mΩ",  "milliohm", R, 1e-3);
+            Add("kΩ",  "kilohm",   R, 1000.0);
+            Add("MΩ",  "megohm",   R, 1e6);
+            Add("GΩ",  "gigohm",   R, 1e9);
+        }
+
+        private static void SeedElectricalConductance()
+        {
+            // 1 / (L^2 * M / (T^3 * A^2)) = T^3 * A^2 / (L^2 * M)
+            var S = -(DimensionSignature.Length * 2) - DimensionSignature.Mass + DimensionSignature.Time * 3 + DimensionSignature.ElectricCurrent * 2;
+            Add("S",  "siemens",      S, 1.0);
+            Add("mS", "millisiemens", S, 1e-3);
+            Add("μS", "microsiemens", S, 1e-6);
+            Add("uS", "microsiemens", S, 1e-6);
+        }
+
+        private static void SeedElectricCapacitance()
+        {
+            // T^4 * A^2 / (L^2 * M)
+            var F = -(DimensionSignature.Length * 2) - DimensionSignature.Mass + DimensionSignature.Time * 4 + DimensionSignature.ElectricCurrent * 2;
+            Add("F",   "farad",      F, 1.0);
+            Add("mF",  "millifarad", F, 1e-3);
+            Add("μF",  "microfarad", F, 1e-6);
+            Add("uF",  "microfarad", F, 1e-6);
+            Add("nF",  "nanofarad",  F, 1e-9);
+            Add("pF",  "picofarad",  F, 1e-12);
+        }
+
+        private static void SeedInductance()
+        {
+            // L^2 * M / (T^2 * A^2)
+            var H = DimensionSignature.Length * 2 + DimensionSignature.Mass - DimensionSignature.Time * 2 - DimensionSignature.ElectricCurrent * 2;
+            Add("H",   "henry",      H, 1.0);
+            Add("mH",  "millihenry", H, 1e-3);
+            Add("μH",  "microhenry", H, 1e-6);
+            Add("uH",  "microhenry", H, 1e-6);
+            Add("nH",  "nanohenry",  H, 1e-9);
+            Add("pH",  "picohenry",  H, 1e-12);
         }
     }
 }
