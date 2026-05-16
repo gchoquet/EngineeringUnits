@@ -1007,7 +1007,7 @@ Things still unclear that need decisions before or during implementation. Best t
 
 2. **VBA function inventory.** You mentioned having a VBA library that isn't critical at this point. If/when you want Phase 1 coverage to mirror what's already in your VBA codebase, share the `.bas` (or workbook) and I'll prioritize the unit-catalog additions accordingly.
 
-3. **Decimal vs double.** Default assumption is `double` (15–17 sig figs). Switching to `decimal` would cost performance and lose `Pow` support (decimal doesn't have it natively). Engineering use almost always wants `double`; flag this only if you have a specific decimal scenario.
+3. ~~**Decimal vs double.**~~ **Resolved** — `double` throughout. The constructor signature `(double value, string unit)` benefits from C# implicit numeric conversion, so callers may pass `int`, `float`, or `double` interchangeably: `new Length(5, "ft")`, `new Length(5.0f, "ft")`, and `new Length(5.0, "ft")` all compile and produce identical results. ExcelDNA likewise passes cell values to UDFs as `double`, so the host boundary is double-only by construction. `decimal` rejected — would cost performance, lose `Math.Pow`, and confer no benefit in engineering arithmetic where 15–17 significant figures is plenty.
 
 4. ~~**Per-instance preferred-unit override.**~~ **Resolved** in Decision 14.17 — preferences are a per-dimension map, not a system flag. Built-in profiles (`SIScientific`, `OilAndGas`, etc.) plus user customization, opt-in via `"P"` format code. Arithmetic still follows left-operand-wins regardless of preferences.
 
