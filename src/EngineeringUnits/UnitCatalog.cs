@@ -629,6 +629,8 @@ namespace EngineeringUnits
             Add("MSCFD",        "thousand standard cubic feet per day (14.73 psia, 60 °F)",         Vf, mmscfdScale / 1000.0);
             Add("SCFD",         "standard cubic feet per day (14.73 psia, 60 °F)",                  Vf, mmscfdScale / 1e6);
             Add("SCFM",         "standard cubic feet per minute (14.73 psia, 60 °F)",              Vf, (0.3048 * 0.3048 * 0.3048) / 60.0);
+            Add("SCFH",         "standard cubic feet per hour (14.73 psia, 60 °F)",                Vf, (0.3048 * 0.3048 * 0.3048) / 3600.0);
+            Add("MCFH",         "thousand standard cubic feet per hour (14.73 psia, 60 °F)",       Vf, (0.3048 * 0.3048 * 0.3048) * 1000.0 / 3600.0);
         }
 
         private static void SeedFrequency()
