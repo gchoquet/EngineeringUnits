@@ -17,7 +17,7 @@ namespace EngineeringUnits
         /// <exception cref="DimensionMismatchException">If the symbol is registered but is not a length unit.</exception>
         public Length(double value, string unit) : base(value, RequireLengthUnit(unit)) { }
 
-        private Length(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
+        internal Length(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
 
         private static Unit RequireLengthUnit(string symbol)
         {
@@ -92,6 +92,40 @@ namespace EngineeringUnits
         {
             if (a is null) throw new ArgumentNullException(nameof(a));
             return new Length(a.DisplayUnit, a.CanonicalValue / scalar) { Precision = a.Precision };
+        }
+
+        // ── Cross-type operators ──────────────────────────────────
+
+        /// <summary>Length * Length → Area.</summary>
+        public static Area operator *(Length a, Length b)
+        {
+            if (a is null) throw new ArgumentNullException(nameof(a));
+            if (b is null) throw new ArgumentNullException(nameof(b));
+            return new Area(UnitCatalog.Get("m^2"), a.CanonicalValue * b.CanonicalValue);
+        }
+
+        /// <summary>Length * Area → Volume.</summary>
+        public static Volume operator *(Length a, Area A)
+        {
+            if (a is null) throw new ArgumentNullException(nameof(a));
+            if (A is null) throw new ArgumentNullException(nameof(A));
+            return new Volume(UnitCatalog.Get("m^3"), a.CanonicalValue * A.CanonicalValue);
+        }
+
+        /// <summary>Length / Time → Velocity.</summary>
+        public static Velocity operator /(Length a, Time t)
+        {
+            if (a is null) throw new ArgumentNullException(nameof(a));
+            if (t is null) throw new ArgumentNullException(nameof(t));
+            return new Velocity(UnitCatalog.Get("m/s"), a.CanonicalValue / t.CanonicalValue);
+        }
+
+        /// <summary>Length * Force → Energy (length-first display convention, per Decision 14.14).</summary>
+        public static Energy operator *(Length L, Force F)
+        {
+            if (L is null) throw new ArgumentNullException(nameof(L));
+            if (F is null) throw new ArgumentNullException(nameof(F));
+            return new Energy(UnitCatalog.Get("J"), L.CanonicalValue * F.CanonicalValue);
         }
 
         public static bool operator <(Length a, Length b) => a.CompareTo(b) < 0;

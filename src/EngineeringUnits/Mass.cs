@@ -13,7 +13,7 @@ namespace EngineeringUnits
         /// <summary>Creates a mass from a value and unit symbol.</summary>
         public Mass(double value, string unit) : base(value, RequireMassUnit(unit)) { }
 
-        private Mass(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
+        internal Mass(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
 
         private static Unit RequireMassUnit(string symbol)
         {
@@ -86,6 +86,32 @@ namespace EngineeringUnits
         {
             if (a is null) throw new ArgumentNullException(nameof(a));
             return new Mass(a.DisplayUnit, a.CanonicalValue / scalar) { Precision = a.Precision };
+        }
+
+        // ── Cross-type operators ──────────────────────────────────
+
+        /// <summary>Mass * Acceleration → Force (Newton's second law).</summary>
+        public static Force operator *(Mass m, Acceleration a)
+        {
+            if (m is null) throw new ArgumentNullException(nameof(m));
+            if (a is null) throw new ArgumentNullException(nameof(a));
+            return new Force(UnitCatalog.Get("N"), m.CanonicalValue * a.CanonicalValue);
+        }
+
+        /// <summary>Mass / Time → MassFlowRate.</summary>
+        public static MassFlowRate operator /(Mass m, Time t)
+        {
+            if (m is null) throw new ArgumentNullException(nameof(m));
+            if (t is null) throw new ArgumentNullException(nameof(t));
+            return new MassFlowRate(UnitCatalog.Get("kg/s"), m.CanonicalValue / t.CanonicalValue);
+        }
+
+        /// <summary>Mass / Volume → Density.</summary>
+        public static Density operator /(Mass m, Volume V)
+        {
+            if (m is null) throw new ArgumentNullException(nameof(m));
+            if (V is null) throw new ArgumentNullException(nameof(V));
+            return new Density(UnitCatalog.Get("kg/m^3"), m.CanonicalValue / V.CanonicalValue);
         }
 
         public static bool operator <(Mass a, Mass b) => a.CompareTo(b) < 0;

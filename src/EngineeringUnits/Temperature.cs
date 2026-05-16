@@ -22,7 +22,7 @@ namespace EngineeringUnits
         /// <summary>Creates a temperature from a value and unit symbol.</summary>
         public Temperature(double value, string unit) : base(value, RequireTemperatureUnit(unit)) { }
 
-        private Temperature(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
+        internal Temperature(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
 
         private static Unit RequireTemperatureUnit(string symbol)
         {

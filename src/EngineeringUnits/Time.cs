@@ -13,7 +13,7 @@ namespace EngineeringUnits
         /// <summary>Creates a time duration from a value and unit symbol.</summary>
         public Time(double value, string unit) : base(value, RequireTimeUnit(unit)) { }
 
-        private Time(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
+        internal Time(Unit displayUnit, double canonicalValue) : base(displayUnit, canonicalValue) { }
 
         private static Unit RequireTimeUnit(string symbol)
         {
@@ -86,6 +86,15 @@ namespace EngineeringUnits
         {
             if (a is null) throw new ArgumentNullException(nameof(a));
             return new Time(a.DisplayUnit, a.CanonicalValue / scalar) { Precision = a.Precision };
+        }
+
+        // ── Cross-type operators ──────────────────────────────────
+
+        /// <summary>scalar / Time → Frequency (e.g. 1 / 0.5s = 2 Hz).</summary>
+        public static Frequency operator /(double scalar, Time t)
+        {
+            if (t is null) throw new ArgumentNullException(nameof(t));
+            return new Frequency(UnitCatalog.Get("Hz"), scalar / t.CanonicalValue);
         }
 
         public static bool operator <(Time a, Time b) => a.CompareTo(b) < 0;
