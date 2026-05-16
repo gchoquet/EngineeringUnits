@@ -14,7 +14,17 @@ namespace EngineeringUnits
     /// </remarks>
     public static class UnitCatalog
     {
+        // Primary index: exact-case symbol lookup ("m" vs "M" matter).
         private static readonly Dictionary<string, Unit> _units = new Dictionary<string, Unit>(StringComparer.Ordinal);
+
+        // Secondary index: case-insensitive long-name lookup ("foot", "Foot", "FOOT" all match).
+        // Built once after all units are seeded.
+        private static readonly Dictionary<string, Unit> _byLongName = new Dictionary<string, Unit>(StringComparer.OrdinalIgnoreCase);
+
+        // Tertiary index: irregular plural / common-name aliases mapping the alternate form
+        // to the unit's long name. English plurals are too irregular to derive ("foot" -> "feet"),
+        // so we list them explicitly.
+        private static readonly Dictionary<string, string> _aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
         static UnitCatalog()
         {
@@ -57,6 +67,8 @@ namespace EngineeringUnits
             SeedElectricalConductance();
             SeedElectricCapacitance();
             SeedInductance();
+            BuildLongNameIndex();
+            SeedAliases();
             RegisterSubclasses();
         }
 
@@ -111,20 +123,39 @@ namespace EngineeringUnits
             _ = R;
         }
 
-        /// <summary>Attempts to look up a unit by its symbol. Returns false if not registered.</summary>
+        /// <summary>
+        /// Attempts to look up a unit by symbol, long name, or registered alias.
+        /// </summary>
+        /// <remarks>
+        /// Lookup order:
+        /// <list type="number">
+        ///   <item>Exact symbol match, case-sensitive (so <c>"m"</c> ≠ <c>"M"</c>).</item>
+        ///   <item>Long-name match, case-insensitive (so <c>"foot"</c>, <c>"Foot"</c>, <c>"FOOT"</c> all match the unit whose <see cref="Unit.LongName"/> is <c>"foot"</c>).</item>
+        ///   <item>Alias match (irregular plurals and common alternate forms), case-insensitive — e.g. <c>"feet"</c>, <c>"inches"</c>.</item>
+        /// </list>
+        /// Returns false if nothing matches.
+        /// </remarks>
         public static bool TryGet(string symbol, out Unit unit)
         {
             if (symbol is null) { unit = default; return false; }
-            return _units.TryGetValue(symbol, out unit);
+            if (_units.TryGetValue(symbol, out unit)) return true;
+            if (_byLongName.TryGetValue(symbol, out unit)) return true;
+            if (_aliases.TryGetValue(symbol, out var canonicalLongName)
+                && _byLongName.TryGetValue(canonicalLongName, out unit))
+                return true;
+            unit = default;
+            return false;
         }
 
-        /// <summary>Looks up a unit by its symbol.</summary>
-        /// <exception cref="UnknownUnitException">If the symbol is not registered.</exception>
+        /// <summary>
+        /// Looks up a unit by symbol, long name, or alias. Uses the same resolution
+        /// order as <see cref="TryGet"/>.
+        /// </summary>
+        /// <exception cref="UnknownUnitException">If nothing matches.</exception>
         public static Unit Get(string symbol)
         {
             if (symbol is null) throw new ArgumentNullException(nameof(symbol));
-            if (!_units.TryGetValue(symbol, out var u))
-                throw new UnknownUnitException(symbol);
+            if (!TryGet(symbol, out var u)) throw new UnknownUnitException(symbol);
             return u;
         }
 
@@ -137,6 +168,139 @@ namespace EngineeringUnits
         private static void Add(string symbol, string longName, DimensionSignature dim, double scale, double offset = 0.0)
         {
             _units[symbol] = new Unit(symbol, longName, dim, scale, offset);
+        }
+
+        /// <summary>
+        /// Builds the case-insensitive long-name index after all primary entries have been
+        /// added. First-write-wins: if multiple units share a long name (rare; mostly happens
+        /// with aliased symbols like "degC"/"°C" both saying "degree Celsius"), the
+        /// first-seeded one is what the long-name lookup returns.
+        /// </summary>
+        private static void BuildLongNameIndex()
+        {
+            foreach (var u in _units.Values)
+            {
+                if (!string.IsNullOrEmpty(u.LongName) && !_byLongName.ContainsKey(u.LongName))
+                {
+                    _byLongName[u.LongName] = u;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Seeds common alternate-form aliases (mostly irregular plurals like "feet" -> "foot")
+        /// that English doesn't derive mechanically. Each alias maps to the canonical long name
+        /// the corresponding unit was registered with.
+        /// </summary>
+        private static void SeedAliases()
+        {
+            // Length
+            _aliases["feet"]        = "foot";
+            _aliases["inches"]      = "inch";
+            _aliases["yards"]       = "yard";
+            _aliases["miles"]       = "mile";
+            _aliases["meters"]      = "meter";
+            _aliases["metres"]      = "meter";          // British spelling
+            _aliases["metre"]       = "meter";
+            _aliases["kilometers"]  = "kilometer";
+            _aliases["kilometres"]  = "kilometer";
+            _aliases["kilometre"]   = "kilometer";
+            _aliases["centimeters"] = "centimeter";
+            _aliases["centimetres"] = "centimeter";
+            _aliases["centimetre"]  = "centimeter";
+            _aliases["millimeters"] = "millimeter";
+            _aliases["millimetres"] = "millimeter";
+            _aliases["millimetre"]  = "millimeter";
+            _aliases["micrometers"] = "micrometer";
+            _aliases["nanometers"]  = "nanometer";
+
+            // Mass
+            _aliases["kilograms"]   = "kilogram";
+            _aliases["grams"]       = "gram";
+            _aliases["milligrams"]  = "milligram";
+            _aliases["micrograms"]  = "microgram";
+            _aliases["pounds"]      = "pound";
+            _aliases["ounces"]      = "ounce";
+            _aliases["tonnes"]      = "tonne";
+            _aliases["tons"]        = "short ton";
+            _aliases["slugs"]       = "slug";
+
+            // Time
+            _aliases["seconds"]      = "second";
+            _aliases["milliseconds"] = "millisecond";
+            _aliases["microseconds"] = "microsecond";
+            _aliases["nanoseconds"]  = "nanosecond";
+            _aliases["minutes"]      = "minute";
+            _aliases["hours"]        = "hour";
+            _aliases["days"]         = "day";
+            _aliases["weeks"]        = "week";
+            _aliases["years"]        = "year";
+
+            // Temperature — long names contain spaces, so the alias gives a single-word handle too
+            _aliases["celsius"]    = "degree Celsius";
+            _aliases["fahrenheit"] = "degree Fahrenheit";
+            _aliases["rankine"]    = "degree Rankine";
+            _aliases["kelvins"]    = "kelvin";
+
+            // Angle
+            _aliases["radians"]      = "radian";
+            _aliases["degrees"]      = "degree";
+            _aliases["revolutions"]  = "revolution";
+            _aliases["gradians"]     = "gradian";
+
+            // Area
+            _aliases["acres"]    = "acre";
+            _aliases["hectares"] = "hectare";
+
+            // Volume
+            _aliases["liters"]     = "liter";
+            _aliases["litres"]     = "liter";
+            _aliases["litre"]      = "liter";
+            _aliases["milliliters"]= "milliliter";
+            _aliases["millilitres"]= "milliliter";
+            _aliases["gallons"]    = "US gallon";
+            _aliases["quarts"]     = "US quart";
+            _aliases["pints"]      = "US pint";
+            _aliases["cups"]       = "US cup";
+            _aliases["barrels"]    = "barrel (petroleum)";
+
+            // Force
+            _aliases["newtons"]     = "newton";
+            _aliases["kilonewtons"] = "kilonewton";
+            _aliases["dynes"]       = "dyne";
+
+            // Pressure
+            _aliases["pascals"]    = "pascal";
+            _aliases["kilopascals"]= "kilopascal";
+            _aliases["megapascals"]= "megapascal";
+            _aliases["bars"]       = "bar";
+            _aliases["atmospheres"]= "standard atmosphere";
+
+            // Energy
+            _aliases["joules"]    = "joule";
+            _aliases["kilojoules"]= "kilojoule";
+            _aliases["megajoules"]= "megajoule";
+            _aliases["calories"]  = "calorie (thermochemical)";
+            _aliases["kilocalories"]= "kilocalorie";
+
+            // Power
+            _aliases["watts"]      = "watt";
+            _aliases["kilowatts"]  = "kilowatt";
+            _aliases["megawatts"]  = "megawatt";
+            _aliases["horsepower"] = "mechanical horsepower";
+
+            // Frequency
+            _aliases["hertz"]     = "hertz";
+
+            // Electrical
+            _aliases["amperes"]    = "ampere";
+            _aliases["amps"]       = "ampere";
+            _aliases["volts"]      = "volt";
+            _aliases["ohms"]       = "ohm";
+            _aliases["farads"]     = "farad";
+            _aliases["henries"]    = "henry";
+            _aliases["henrys"]     = "henry";
+            _aliases["coulombs"]   = "coulomb";
         }
 
         // ── Catalog ──────────────────────────────────────────────────
