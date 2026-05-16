@@ -240,5 +240,57 @@ namespace EngineeringUnits
                 throw new DimensionMismatchException(Dimension, other.Dimension);
             return CanonicalValue.CompareTo(other.CanonicalValue);
         }
+
+        // ── Pow / Abs (dynamic dispatch via SubclassRegistry) ──────
+
+        /// <summary>
+        /// Raises this quantity to an integer power. The result's dimension is this
+        /// dimension multiplied element-wise by the exponent; the runtime resolves to
+        /// the matching subclass (e.g. <c>Length.Pow(2) → Area</c>,
+        /// <c>Length.Pow(3) → Volume</c>) or to <see cref="DerivedUnit"/> if no
+        /// subclass matches.
+        /// </summary>
+        public EngineeringUnit Pow(int exponent)
+        {
+            if (exponent == 0) return new DimensionlessQuantity(1.0);
+            if (exponent == 1) return Internal.SubclassRegistry.Create(DisplayUnit, CanonicalValue);
+            var newDim = Dimension * exponent;
+            var newCanonical = Math.Pow(CanonicalValue, exponent);
+            return Internal.SubclassRegistry.CreateCanonical(newDim, newCanonical);
+        }
+
+        /// <summary>
+        /// Raises this quantity to a non-integer power. Fails (throws) if the result
+        /// dimension is not integer-valued for every base dimension. Use the integer
+        /// overload when applicable for cleaner semantics.
+        /// </summary>
+        public EngineeringUnit Pow(double exponent)
+        {
+            // Integer fast-path
+            var intExp = (int)Math.Round(exponent);
+            if (Math.Abs(exponent - intExp) < 1e-12) return Pow(intExp);
+
+            // Verify result dimensions remain integer
+            double Scaled(sbyte e) => e * exponent;
+            var nL = Scaled(Dimension.L); var nM = Scaled(Dimension.M);
+            var nT = Scaled(Dimension.T); var nI = Scaled(Dimension.I);
+            var nTh = Scaled(Dimension.Theta); var nN = Scaled(Dimension.N);
+            var nJ = Scaled(Dimension.J); var nA = Scaled(Dimension.A);
+            static bool IsInt(double d) => Math.Abs(d - Math.Round(d)) < 1e-9;
+            if (!(IsInt(nL) && IsInt(nM) && IsInt(nT) && IsInt(nI) && IsInt(nTh) && IsInt(nN) && IsInt(nJ) && IsInt(nA)))
+                throw new InvalidOperationException(
+                    $"Pow({exponent}) on a quantity of dimension {Dimension} would yield non-integer dimension components.");
+            var newDim = new DimensionSignature(
+                (sbyte)Math.Round(nL), (sbyte)Math.Round(nM), (sbyte)Math.Round(nT), (sbyte)Math.Round(nI),
+                (sbyte)Math.Round(nTh), (sbyte)Math.Round(nN), (sbyte)Math.Round(nJ), (sbyte)Math.Round(nA));
+            var newCanonical = Math.Pow(CanonicalValue, exponent);
+            return Internal.SubclassRegistry.CreateCanonical(newDim, newCanonical);
+        }
+
+        /// <summary>
+        /// Returns the absolute value of this quantity, preserving subclass type and
+        /// display unit.
+        /// </summary>
+        public EngineeringUnit Abs() => Internal.SubclassRegistry.Create(DisplayUnit, Math.Abs(CanonicalValue));
     }
 }

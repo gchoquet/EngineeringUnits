@@ -50,6 +50,50 @@ namespace EngineeringUnits
             SeedEnergyDensity();
             SeedSpecificVolume();
             SeedAreaDensity();
+            RegisterSubclasses();
+        }
+
+        private static void RegisterSubclasses()
+        {
+            var R = typeof(Internal.SubclassRegistry);
+            // Base
+            Internal.SubclassRegistry.Register(DimensionSignature.Length, "m",  (u, cv) => new Length(u, cv));
+            Internal.SubclassRegistry.Register(DimensionSignature.Mass,   "kg", (u, cv) => new Mass(u, cv));
+            Internal.SubclassRegistry.Register(DimensionSignature.Time,   "s",  (u, cv) => new Time(u, cv));
+            Internal.SubclassRegistry.Register(DimensionSignature.Temperature, "K", (u, cv) => new Temperature(u, cv));
+            Internal.SubclassRegistry.Register(DimensionSignature.PlaneAngle, "rad", (u, cv) => new PlaneAngle(u, cv));
+            // Geometric / kinematic
+            Internal.SubclassRegistry.Register(Area.Dim,            "m^2",     (u, cv) => new Area(u, cv));
+            Internal.SubclassRegistry.Register(Volume.Dim,          "m^3",     (u, cv) => new Volume(u, cv));
+            Internal.SubclassRegistry.Register(Velocity.Dim,        "m/s",     (u, cv) => new Velocity(u, cv));
+            Internal.SubclassRegistry.Register(Acceleration.Dim,    "m/s^2",   (u, cv) => new Acceleration(u, cv));
+            Internal.SubclassRegistry.Register(AngularVelocity.Dim, "rad/s",   (u, cv) => new AngularVelocity(u, cv));
+            Internal.SubclassRegistry.Register(Frequency.Dim,       "Hz",      (u, cv) => new Frequency(u, cv));
+            // Dynamic
+            Internal.SubclassRegistry.Register(Force.Dim,    "N",  (u, cv) => new Force(u, cv));
+            Internal.SubclassRegistry.Register(Pressure.Dim, "Pa", (u, cv) => new Pressure(u, cv));
+            Internal.SubclassRegistry.Register(Energy.Dim,   "J",  (u, cv) => new Energy(u, cv));  // Torque shares dim; Energy registered as the default
+            Internal.SubclassRegistry.Register(Power.Dim,    "W",  (u, cv) => new Power(u, cv));
+            // Flow / material
+            Internal.SubclassRegistry.Register(Density.Dim,            "kg/m^3",  (u, cv) => new Density(u, cv));
+            Internal.SubclassRegistry.Register(MassFlowRate.Dim,       "kg/s",    (u, cv) => new MassFlowRate(u, cv));
+            Internal.SubclassRegistry.Register(VolumetricFlowRate.Dim, "m^3/s",   (u, cv) => new VolumetricFlowRate(u, cv));
+            // Tier A
+            Internal.SubclassRegistry.Register(DynamicViscosity.Dim,    "Pa*s",     (u, cv) => new DynamicViscosity(u, cv));
+            Internal.SubclassRegistry.Register(KinematicViscosity.Dim,  "m^2/s",    (u, cv) => new KinematicViscosity(u, cv));
+            Internal.SubclassRegistry.Register(ThermalConductivity.Dim, "W/(m*K)",  (u, cv) => new ThermalConductivity(u, cv));
+            Internal.SubclassRegistry.Register(SpecificHeatCapacity.Dim,"J/(kg*K)", (u, cv) => new SpecificHeatCapacity(u, cv));
+            Internal.SubclassRegistry.Register(HeatCapacity.Dim,        "J/K",      (u, cv) => new HeatCapacity(u, cv));
+            Internal.SubclassRegistry.Register(HeatFluxDensity.Dim,     "W/m^2",    (u, cv) => new HeatFluxDensity(u, cv));
+            Internal.SubclassRegistry.Register(Momentum.Dim,            "kg*m/s",   (u, cv) => new Momentum(u, cv));
+            Internal.SubclassRegistry.Register(SurfaceTension.Dim,      "N/m",      (u, cv) => new SurfaceTension(u, cv));
+            Internal.SubclassRegistry.Register(SpecificEnergy.Dim,      "J/kg",     (u, cv) => new SpecificEnergy(u, cv));
+            // Note: EnergyDensity shares dim with Pressure (already registered); SpecificVolume:
+            Internal.SubclassRegistry.Register(SpecificVolume.Dim,      "m^3/kg",   (u, cv) => new SpecificVolume(u, cv));
+            Internal.SubclassRegistry.Register(AreaDensity.Dim,         "kg/m^2",   (u, cv) => new AreaDensity(u, cv));
+            // Dimensionless
+            Internal.SubclassRegistry.Register(DimensionSignature.Dimensionless, "1", (u, cv) => new DimensionlessQuantity(u, cv));
+            _ = R;
         }
 
         /// <summary>Attempts to look up a unit by its symbol. Returns false if not registered.</summary>

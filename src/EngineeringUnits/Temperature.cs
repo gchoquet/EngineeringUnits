@@ -71,13 +71,13 @@ namespace EngineeringUnits
                 "and reconstruct. (TemperatureDelta type planned for v1.x.)");
         }
 
-        /// <summary>Subtraction yields a temperature difference, returned in kelvin.</summary>
-        public static Temperature operator -(Temperature a, Temperature b)
+        /// <summary>Subtraction of two absolute temperatures yields a <see cref="TemperatureDelta"/>, expressed in the left operand's unit.</summary>
+        public static TemperatureDelta operator -(Temperature a, Temperature b)
         {
             if (a is null) throw new ArgumentNullException(nameof(a));
             if (b is null) throw new ArgumentNullException(nameof(b));
             var kelvinDelta = a.CanonicalValue - b.CanonicalValue;
-            return new Temperature(UnitCatalog.Get("K"), kelvinDelta)
+            return new TemperatureDelta(a.DisplayUnit, kelvinDelta)
             { Precision = Math.Min(a.Precision, b.Precision) };
         }
 

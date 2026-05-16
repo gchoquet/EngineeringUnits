@@ -56,21 +56,25 @@ namespace EngineeringUnits.Tests
         }
 
         [Fact]
-        public void Subtraction_ReturnsKelvinDelta()
+        public void Subtraction_ReturnsTemperatureDelta_InLeftOperandUnit()
         {
-            // 30°C - 20°C = 10 K (delta)
+            // 30°C - 20°C = 10°C delta (display in left operand's unit, no offset)
             var diff = new Temperature(30, "degC") - new Temperature(20, "degC");
-            Assert.Equal("K", diff.DisplayUnit.Symbol);
+            Assert.IsType<TemperatureDelta>(diff);
+            Assert.Equal("degC", diff.DisplayUnit.Symbol);
             Assert.Equal(10.0, diff.Value, 9);
         }
 
         [Fact]
-        public void Subtraction_AcrossUnitsYieldsCorrectKelvinDelta()
+        public void Subtraction_AcrossUnitsYieldsCorrectDelta()
         {
-            // 100°F - 32°F = 68°F delta = 68 * 5/9 K = 37.777...K
+            // 100°F - 32°F = 68°F delta (linear; no offset applied)
             var diff = new Temperature(100, "degF") - new Temperature(32, "degF");
-            Assert.Equal("K", diff.DisplayUnit.Symbol);
-            Assert.Equal(68.0 * 5.0 / 9.0, diff.Value, 9);
+            Assert.IsType<TemperatureDelta>(diff);
+            Assert.Equal("degF", diff.DisplayUnit.Symbol);
+            Assert.Equal(68.0, diff.Value, 9);
+            // Verify the delta is also correct in K
+            Assert.Equal(68.0 * 5.0 / 9.0, diff.As("K"), 9);
         }
 
         [Fact]
