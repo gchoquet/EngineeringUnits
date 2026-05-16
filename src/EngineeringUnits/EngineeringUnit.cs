@@ -76,14 +76,105 @@ namespace EngineeringUnits
         /// <inheritdoc cref="IFormattable.ToString(string, IFormatProvider)" />
         public string ToString(string? format) => ToString(format, CultureInfo.InvariantCulture);
 
-        /// <inheritdoc cref="IFormattable.ToString(string, IFormatProvider)" />
+        /// <summary>
+        /// Formats this quantity. Supported format codes (see specification §8.2 and §14.17):
+        /// <list type="bullet">
+        ///   <item><term>G or null</term><description>General default — short symbol.</description></item>
+        ///   <item><term>L</term><description>Long unit name (e.g. <c>"feet"</c>).</description></item>
+        ///   <item><term>D</term><description>Dual — primary value plus SI or US-customary equivalent in parens.</description></item>
+        ///   <item><term>S</term><description>SI canonical (from <see cref="UnitPreferences.SIScientific"/>).</description></item>
+        ///   <item><term>U</term><description>US-customary canonical (from <see cref="UnitPreferences.UsCustomary"/>).</description></item>
+        ///   <item><term>P</term><description>Preferred (from <see cref="UnitPreferences.Default"/>).</description></item>
+        ///   <item><term>E</term><description>Scientific notation.</description></item>
+        ///   <item><term>N{n}</term><description>Force <c>n</c> significant figures, e.g. <c>"N6"</c>.</description></item>
+        ///   <item><term>{unit}</term><description>Force a specific unit, e.g. <c>"{m}"</c>.</description></item>
+        /// </list>
+        /// </summary>
         public virtual string ToString(string? format, IFormatProvider? formatProvider)
         {
             formatProvider ??= CultureInfo.InvariantCulture;
-            // Phase 1: only the default "G" form. Other format codes arrive in Phase 3.
-            var numeric = FormatValue(Value, Precision, formatProvider);
-            var symbol = DisplayUnit.Symbol;
-            return string.IsNullOrEmpty(symbol) ? numeric : $"{numeric} {symbol}";
+
+            if (string.IsNullOrEmpty(format) || format == "G")
+                return FormatWithUnit(Value, Precision, DisplayUnit, useLongName: false, formatProvider);
+
+            if (format == "L")
+                return FormatWithUnit(Value, Precision, DisplayUnit, useLongName: true, formatProvider);
+
+            if (format == "S")
+                return FormatInProfileUnit(UnitPreferences.SIScientific, formatProvider);
+
+            if (format == "U")
+                return FormatInProfileUnit(UnitPreferences.UsCustomary, formatProvider);
+
+            if (format == "P")
+                return FormatInProfileUnit(UnitPreferences.Default, formatProvider);
+
+            if (format == "D")
+                return ToDualString();
+
+            if (format == "E")
+            {
+                var s = Value.ToString("E" + Math.Max(0, Precision - 1), formatProvider);
+                var sym = DisplayUnit.Symbol;
+                return string.IsNullOrEmpty(sym) ? s : $"{s} {sym}";
+            }
+
+            // N{n} — force n sig figs
+            if (format!.Length > 1 && format[0] == 'N' && int.TryParse(format.Substring(1), out var sigFigs))
+                return FormatWithUnit(Value, (byte)Math.Max(1, Math.Min(15, sigFigs)), DisplayUnit, useLongName: false, formatProvider);
+
+            // {unit} — force a specific unit
+            if (format.Length >= 2 && format[0] == '{' && format[format.Length - 1] == '}')
+            {
+                var unitSym = format.Substring(1, format.Length - 2);
+                if (UnitCatalog.TryGet(unitSym, out var unit) && unit.Dimension == Dimension)
+                    return FormatWithUnit(unit.FromCanonical(CanonicalValue), Precision, unit, useLongName: false, formatProvider);
+            }
+
+            // Unknown format — fall back to default
+            return FormatWithUnit(Value, Precision, DisplayUnit, useLongName: false, formatProvider);
+        }
+
+        /// <summary>
+        /// Returns a two-system display like <c>"0.500 m (1.640 ft)"</c>. The primary is
+        /// this quantity's current display unit; the parenthesized secondary is the
+        /// other system (US-customary if primary is SI, or SI if primary is US-customary).
+        /// </summary>
+        public virtual string ToDualString()
+        {
+            var siUnit = UnitPreferences.SIScientific.GetPreferred(Dimension);
+            var usUnit = UnitPreferences.UsCustomary.GetPreferred(Dimension);
+            var provider = CultureInfo.InvariantCulture;
+
+            var primary = FormatWithUnit(Value, Precision, DisplayUnit, useLongName: false, provider);
+
+            // Pick the secondary: prefer the system OPPOSITE to the current display.
+            Unit? secondary = null;
+            if (siUnit.HasValue && siUnit.Value.Symbol == DisplayUnit.Symbol)
+                secondary = usUnit;
+            else if (usUnit.HasValue && usUnit.Value.Symbol == DisplayUnit.Symbol)
+                secondary = siUnit;
+            else
+                secondary = siUnit.HasValue && siUnit.Value.Symbol != DisplayUnit.Symbol ? siUnit : usUnit;
+
+            if (secondary == null) return primary;
+            var secondaryStr = FormatWithUnit(secondary.Value.FromCanonical(CanonicalValue), Precision, secondary.Value, useLongName: false, provider);
+            return $"{primary} ({secondaryStr})";
+        }
+
+        private string FormatInProfileUnit(UnitPreferences profile, IFormatProvider provider)
+        {
+            var preferred = profile.GetPreferred(Dimension);
+            if (preferred == null)
+                return FormatWithUnit(Value, Precision, DisplayUnit, useLongName: false, provider);
+            return FormatWithUnit(preferred.Value.FromCanonical(CanonicalValue), Precision, preferred.Value, useLongName: false, provider);
+        }
+
+        private static string FormatWithUnit(double value, byte sigFigs, Unit unit, bool useLongName, IFormatProvider provider)
+        {
+            var num = FormatValue(value, sigFigs, provider);
+            var label = useLongName ? unit.LongName : unit.Symbol;
+            return string.IsNullOrEmpty(label) ? num : $"{num} {label}";
         }
 
         /// <summary>
