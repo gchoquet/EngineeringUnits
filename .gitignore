@@ -40,8 +40,9 @@ coverage*.info
 
 # ── DocFX ─────────────────────────────────────────────────────────
 _site/
-docs/api/.manifest
+docs/api/
 docs/_site/
+docs/obj/
 
 # ── Backups / OS junk ─────────────────────────────────────────────
 *.bak
