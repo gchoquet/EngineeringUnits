@@ -37,6 +37,8 @@ namespace EngineeringUnits
         public static Length operator *(Velocity v, Time t) => new Length(UnitCatalog.Get("m"), v.CanonicalValue * t.CanonicalValue);
         /// <summary>Velocity / Time → Acceleration.</summary>
         public static Acceleration operator /(Velocity v, Time t) => new Acceleration(UnitCatalog.Get("m/s^2"), v.CanonicalValue / t.CanonicalValue);
+        /// <summary>Velocity / Velocity → DimensionlessQuantity (e.g. Mach number candidate).</summary>
+        public static DimensionlessQuantity operator /(Velocity a, Velocity b) => new DimensionlessQuantity(a.CanonicalValue / b.CanonicalValue);
 
         public static bool operator <(Velocity a, Velocity b) => a.CompareTo(b) < 0;
         public static bool operator >(Velocity a, Velocity b) => a.CompareTo(b) > 0;

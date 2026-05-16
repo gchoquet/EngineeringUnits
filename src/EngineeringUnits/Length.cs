@@ -128,6 +128,14 @@ namespace EngineeringUnits
             return new Energy(UnitCatalog.Get("J"), L.CanonicalValue * F.CanonicalValue);
         }
 
+        /// <summary>Length / Length → DimensionlessQuantity (e.g. strain candidate).</summary>
+        public static DimensionlessQuantity operator /(Length a, Length b)
+        {
+            if (a is null) throw new ArgumentNullException(nameof(a));
+            if (b is null) throw new ArgumentNullException(nameof(b));
+            return new DimensionlessQuantity(a.CanonicalValue / b.CanonicalValue);
+        }
+
         public static bool operator <(Length a, Length b) => a.CompareTo(b) < 0;
         public static bool operator >(Length a, Length b) => a.CompareTo(b) > 0;
         public static bool operator <=(Length a, Length b) => a.CompareTo(b) <= 0;

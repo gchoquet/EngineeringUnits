@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         static UnitCatalog()
         {
-            // Dimensionless registration deferred to Phase 4 (DimensionlessQuantity).
+            SeedDimensionless();
             SeedLength();
             SeedMass();
             SeedTime();
@@ -70,6 +70,14 @@ namespace EngineeringUnits
 
         // ── Catalog ──────────────────────────────────────────────────
 
+        private static void SeedDimensionless()
+        {
+            Add("1", "dimensionless", DimensionSignature.Dimensionless, 1.0);
+            // Interpretation symbols (Re, Ma, Fr, etc.) are registered as dimensionless
+            // units for the catalog, but DimensionlessQuantity.PreferredInterpretation
+            // is what drives display.
+        }
+
         private static void SeedLength()
         {
             var L = DimensionSignature.Length;
@@ -109,6 +117,8 @@ namespace EngineeringUnits
             Add("slug", "slug",       M, 14.59390294);
             Add("ton",  "short ton",  M, 907.18474);
             Add("lt",   "long ton",   M, 1016.0469088);   // UK ton
+            Add("Da",   "dalton",     M, 1.66053906660e-27);  // CODATA 2018 / 2019 SI
+            Add("u",    "atomic mass unit", M, 1.66053906660e-27);
         }
 
         private static void SeedTime()
@@ -370,6 +380,20 @@ namespace EngineeringUnits
             Add("gpm",     "US gallon per minute",   Vf, 3.785411784e-3 / 60.0);
             Add("bbl/day", "barrel per day",         Vf, 0.158987294928 / 86400.0);
             Add("bpd",     "barrel per day",         Vf, 0.158987294928 / 86400.0);
+
+            // MMSCFD: million standard cubic feet per day. Geometric flow conversion
+            // is the same regardless of "standard" conditions (the conditions matter
+            // when converting to MASS flow via the ideal gas law, not for volumetric).
+            // The variants are bookkeeping: they record which standard the value is
+            // measured at, so a downstream conversion to mass uses the right basis.
+            // See specification §5.4 and Decision 14.12.
+            var mmscfdScale = 1e6 * (0.3048 * 0.3048 * 0.3048) / 86400.0;
+            Add("MMSCFD",       "million standard cubic feet per day (14.73 psia, 60 °F — GPSA/AGA)", Vf, mmscfdScale);
+            Add("MMSCFD_petro", "million standard cubic feet per day (14.696 psia, 60 °F — petroleum)", Vf, mmscfdScale);
+            Add("MMSCFD_iupac", "million standard cubic feet per day (100 kPa, 0 °C — IUPAC)",       Vf, mmscfdScale);
+            Add("MSCFD",        "thousand standard cubic feet per day (14.73 psia, 60 °F)",         Vf, mmscfdScale / 1000.0);
+            Add("SCFD",         "standard cubic feet per day (14.73 psia, 60 °F)",                  Vf, mmscfdScale / 1e6);
+            Add("SCFM",         "standard cubic feet per minute (14.73 psia, 60 °F)",              Vf, (0.3048 * 0.3048 * 0.3048) / 60.0);
         }
 
         private static void SeedFrequency()
