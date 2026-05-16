@@ -38,6 +38,18 @@ namespace EngineeringUnits
             SeedVolumetricFlowRate();
             SeedFrequency();
             SeedAngularVelocity();
+            SeedDynamicViscosity();
+            SeedKinematicViscosity();
+            SeedThermalConductivity();
+            SeedSpecificHeatCapacity();
+            SeedHeatCapacity();
+            SeedHeatFluxDensity();
+            SeedMomentum();
+            SeedSurfaceTension();
+            SeedSpecificEnergy();
+            SeedEnergyDensity();
+            SeedSpecificVolume();
+            SeedAreaDensity();
         }
 
         /// <summary>Attempts to look up a unit by its symbol. Returns false if not registered.</summary>
@@ -417,6 +429,160 @@ namespace EngineeringUnits
             Add("deg/s",  "degree per second", Aw, System.Math.PI / 180.0);
             Add("rpm",    "revolution per minute", Aw, 2.0 * System.Math.PI / 60.0);
             Add("rps",    "revolution per second", Aw, 2.0 * System.Math.PI);
+        }
+
+        private static void SeedDynamicViscosity()
+        {
+            // M / (L * T)
+            var Dv = DimensionSignature.Mass - DimensionSignature.Length - DimensionSignature.Time;
+            Add("Pa*s",  "pascal-second",        Dv, 1.0);
+            Add("Pa*s_alt","pascal-second",      Dv, 1.0); // placeholder for alt symbol (not used)
+            Add("mPa*s", "millipascal-second",   Dv, 1e-3);
+            Add("P",     "poise",                Dv, 0.1);
+            Add("cP",    "centipoise",           Dv, 1e-3);   // 1 cP = 1 mPa*s
+            Add("lb/(ft*s)", "pound per foot-second", Dv, 0.45359237 / 0.3048);
+            Add("lb/(ft*hr)","pound per foot-hour",   Dv, 0.45359237 / 0.3048 / 3600.0);
+        }
+
+        private static void SeedKinematicViscosity()
+        {
+            // L^2 / T
+            var Kv = DimensionSignature.Length * 2 - DimensionSignature.Time;
+            Add("m^2/s",  "square meter per second", Kv, 1.0);
+            Add("m²/s",   "square meter per second", Kv, 1.0);
+            Add("mm^2/s", "square millimeter per second", Kv, 1e-6);
+            Add("mm²/s",  "square millimeter per second", Kv, 1e-6);
+            Add("St",     "stokes",                  Kv, 1e-4);  // 1 St = 1 cm^2/s = 1e-4 m^2/s
+            Add("cSt",    "centistokes",             Kv, 1e-6);  // 1 cSt = 1 mm^2/s
+            Add("ft^2/s", "square foot per second",  Kv, 0.3048 * 0.3048);
+            Add("ft²/s",  "square foot per second",  Kv, 0.3048 * 0.3048);
+        }
+
+        private static void SeedThermalConductivity()
+        {
+            // L * M / (T^3 * Θ)
+            var Tc = DimensionSignature.Length + DimensionSignature.Mass - DimensionSignature.Time * 3 - DimensionSignature.Temperature;
+            Add("W/(m*K)",      "watt per meter-kelvin",         Tc, 1.0);
+            Add("W/(m·K)",      "watt per meter-kelvin",         Tc, 1.0);
+            Add("kW/(m*K)",     "kilowatt per meter-kelvin",     Tc, 1000.0);
+            Add("mW/(m*K)",     "milliwatt per meter-kelvin",    Tc, 1e-3);
+            Add("BTU/(hr*ft*degF)", "BTU per hour-foot-degree-Fahrenheit", Tc, 1.730734666374);
+            Add("BTU/(hr*ft*°F)",   "BTU per hour-foot-degree-Fahrenheit", Tc, 1.730734666374);
+            Add("cal/(s*cm*degC)",  "calorie per second-centimeter-degree-Celsius", Tc, 418.4);
+        }
+
+        private static void SeedSpecificHeatCapacity()
+        {
+            // L^2 / (T^2 * Θ)
+            var Shc = DimensionSignature.Length * 2 - DimensionSignature.Time * 2 - DimensionSignature.Temperature;
+            Add("J/(kg*K)", "joule per kilogram-kelvin", Shc, 1.0);
+            Add("J/(kg·K)", "joule per kilogram-kelvin", Shc, 1.0);
+            Add("kJ/(kg*K)","kilojoule per kilogram-kelvin", Shc, 1000.0);
+            Add("kJ/(kg·K)","kilojoule per kilogram-kelvin", Shc, 1000.0);
+            Add("cal/(g*degC)", "calorie per gram-degree-Celsius", Shc, 4184.0);
+            Add("BTU/(lb*degF)","BTU per pound-degree-Fahrenheit", Shc, 4186.8);
+            Add("BTU/(lb*°F)",  "BTU per pound-degree-Fahrenheit", Shc, 4186.8);
+        }
+
+        private static void SeedHeatCapacity()
+        {
+            // L^2 * M / (T^2 * Θ)
+            var Hc = DimensionSignature.Length * 2 + DimensionSignature.Mass - DimensionSignature.Time * 2 - DimensionSignature.Temperature;
+            Add("J/K",      "joule per kelvin",                Hc, 1.0);
+            Add("kJ/K",     "kilojoule per kelvin",            Hc, 1000.0);
+            Add("BTU/degF", "BTU per degree-Fahrenheit",       Hc, 1899.10073600);
+            Add("BTU/°F",   "BTU per degree-Fahrenheit",       Hc, 1899.10073600);
+            Add("cal/K",    "calorie per kelvin",              Hc, 4.184);
+        }
+
+        private static void SeedHeatFluxDensity()
+        {
+            // M / T^3
+            var Hf = DimensionSignature.Mass - DimensionSignature.Time * 3;
+            Add("W/m^2",       "watt per square-meter",      Hf, 1.0);
+            Add("W/m²",        "watt per square-meter",      Hf, 1.0);
+            Add("kW/m^2",      "kilowatt per square-meter",  Hf, 1000.0);
+            Add("kW/m²",       "kilowatt per square-meter",  Hf, 1000.0);
+            Add("BTU/(hr*ft^2)","BTU per hour-square-foot",  Hf, 3.15459074506);
+            Add("BTU/(hr*ft²)", "BTU per hour-square-foot",  Hf, 3.15459074506);
+            Add("cal/(s*cm^2)", "calorie per second-square-centimeter", Hf, 41840.0);
+        }
+
+        private static void SeedMomentum()
+        {
+            // L * M / T
+            var P = DimensionSignature.Length + DimensionSignature.Mass - DimensionSignature.Time;
+            Add("kg*m/s", "kilogram-meter per second", P, 1.0);
+            Add("kg·m/s", "kilogram-meter per second", P, 1.0);
+            Add("N*s",    "newton-second",             P, 1.0);
+            Add("N·s",    "newton-second",             P, 1.0);
+            Add("lb*ft/s","pound-foot per second",     P, 0.45359237 * 0.3048);
+            Add("slug*ft/s","slug-foot per second",    P, 14.59390294 * 0.3048);
+            Add("lbf*s",  "pound-force second",        P, 4.4482216152605);
+        }
+
+        private static void SeedSurfaceTension()
+        {
+            // M / T^2 (= force per length, dimensionally)
+            var St = DimensionSignature.Mass - DimensionSignature.Time * 2;
+            Add("N/m",    "newton per meter",    St, 1.0);
+            Add("mN/m",   "millinewton per meter", St, 1e-3);
+            Add("dyn/cm", "dyne per centimeter", St, 1e-3);   // 1 dyn/cm = 1 mN/m
+            Add("lbf/ft", "pound-force per foot", St, 4.4482216152605 / 0.3048);
+            Add("lbf/in", "pound-force per inch", St, 4.4482216152605 / 0.0254);
+        }
+
+        private static void SeedSpecificEnergy()
+        {
+            // L^2 / T^2
+            var Se = DimensionSignature.Length * 2 - DimensionSignature.Time * 2;
+            Add("J/kg",   "joule per kilogram",     Se, 1.0);
+            Add("kJ/kg",  "kilojoule per kilogram", Se, 1000.0);
+            Add("MJ/kg",  "megajoule per kilogram", Se, 1e6);
+            Add("BTU/lb", "BTU per pound",          Se, 2326.0);
+            Add("cal/g",  "calorie per gram",       Se, 4184.0);
+            Add("kcal/kg","kilocalorie per kilogram", Se, 4184.0);
+            Add("Wh/kg",  "watt-hour per kilogram", Se, 3600.0);
+            Add("kWh/kg", "kilowatt-hour per kilogram", Se, 3.6e6);
+        }
+
+        private static void SeedEnergyDensity()
+        {
+            // M / (L * T^2) — same dimension as Pressure
+            var Ed = DimensionSignature.Mass - DimensionSignature.Length - DimensionSignature.Time * 2;
+            Add("J/m^3",   "joule per cubic-meter",     Ed, 1.0);
+            Add("J/m³",    "joule per cubic-meter",     Ed, 1.0);
+            Add("kJ/m^3",  "kilojoule per cubic-meter", Ed, 1000.0);
+            Add("MJ/m^3",  "megajoule per cubic-meter", Ed, 1e6);
+            Add("BTU/ft^3","BTU per cubic-foot",        Ed, 37258.94576);
+            Add("BTU/ft³", "BTU per cubic-foot",        Ed, 37258.94576);
+            Add("Wh/L",    "watt-hour per liter",       Ed, 3.6e6);
+            Add("kWh/L",   "kilowatt-hour per liter",   Ed, 3.6e9);
+        }
+
+        private static void SeedSpecificVolume()
+        {
+            // L^3 / M (reciprocal of density)
+            var Sv = DimensionSignature.Length * 3 - DimensionSignature.Mass;
+            Add("m^3/kg", "cubic-meter per kilogram", Sv, 1.0);
+            Add("m³/kg",  "cubic-meter per kilogram", Sv, 1.0);
+            Add("L/kg",   "liter per kilogram",       Sv, 1e-3);
+            Add("ft^3/lb","cubic-foot per pound",     Sv, (0.3048 * 0.3048 * 0.3048) / 0.45359237);
+            Add("ft³/lb", "cubic-foot per pound",     Sv, (0.3048 * 0.3048 * 0.3048) / 0.45359237);
+            Add("cm^3/g", "cubic-centimeter per gram", Sv, 1e-3);
+        }
+
+        private static void SeedAreaDensity()
+        {
+            // M / L^2
+            var Ad = DimensionSignature.Mass - DimensionSignature.Length * 2;
+            Add("kg/m^2",  "kilogram per square-meter", Ad, 1.0);
+            Add("kg/m²",   "kilogram per square-meter", Ad, 1.0);
+            Add("g/m^2",   "gram per square-meter",     Ad, 1e-3);
+            Add("g/m²",    "gram per square-meter",     Ad, 1e-3);
+            Add("lb/ft^2", "pound per square-foot",     Ad, 0.45359237 / (0.3048 * 0.3048));
+            Add("lb/ft²",  "pound per square-foot",     Ad, 0.45359237 / (0.3048 * 0.3048));
+            Add("oz/yd^2", "ounce per square-yard",     Ad, 0.028349523125 / (0.9144 * 0.9144));
         }
     }
 }
