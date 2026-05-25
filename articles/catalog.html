@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Catalog Reference | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Catalog Reference | EngineeringUnits API Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/blob/main/docs/articles/catalog.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="catalog-reference">Catalog Reference</h1>
+
+<p>The unit catalog is populated at module load and frozen. Lookup is case-sensitive (so <code>m</code> and <code>M</code> are distinct). For end-user input, prefer the case-sensitive symbols listed below.</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Symbol → SI base</th>
+<th>Common units</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Length</td>
+<td>→ m</td>
+<td>m, km, cm, mm, μm/um, nm, Mm, in, ft, yd, mi, nmi, fathom, furlong</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mass</td>
+<td>→ kg</td>
+<td>kg, g, mg, μg/ug, t, lb, lbm, oz, slug, ton, lt, Da, u</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Time</td>
+<td>→ s</td>
+<td>s, ms, μs/us, ns, min, h, hr, day, week, year, yr</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>→ K</td>
+<td>K, °C/degC, °F/degF, °R/degR</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Electric Current</td>
+<td>→ A</td>
+<td>A, mA, μA, nA, kA</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PlaneAngle</td>
+<td>→ rad</td>
+<td>rad, deg/°, rev, grad</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Area</td>
+<td>→ m²</td>
+<td>m², cm², mm², km², ha, in², ft², yd², mi², acre</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>→ m³</td>
+<td>m³, cm³, mm³, L, mL, μL, in³, ft³, yd³, gal, gal_imp, qt, pt, cup, floz, bbl</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Velocity</td>
+<td>→ m/s</td>
+<td>m/s, cm/s, mm/s, km/h, kph, ft/s, ft/min, mph, knot/kn</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Acceleration</td>
+<td>→ m/s²</td>
+<td>m/s², ft/s², g_n, Gal</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AngularVelocity</td>
+<td>→ rad/s</td>
+<td>rad/s, rad/min, deg/s, rpm, rps</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td>→ Hz</td>
+<td>Hz, kHz, MHz, GHz, 1/s, 1/min</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Force</td>
+<td>→ N</td>
+<td>N, kN, MN, mN, lbf, kgf, dyn, ozf</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Pressure</td>
+<td>→ Pa</td>
+<td>Pa, kPa, MPa, GPa, hPa, mPa, bar, mbar, atm, psi, psia, psig, ksi, Torr, mmHg, inHg, inH2O</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Energy</td>
+<td>→ J</td>
+<td>J, kJ, MJ, GJ, mJ, Wh, kWh, MWh, BTU, kBTU, MMBTU, cal, kcal, erg, ft<em>lbf</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Torque</td>
+<td>→ N·m</td>
+<td>Nm, lbf<em>ft, lbf</em>in, kgf<em>m</em></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Power</td>
+<td>→ W</td>
+<td>W, kW, MW, GW, mW, hp, hp_e, hp_m, BTU/hr, BTU/s, ftlbf/s, MMBTU/hr</td>
+<td></td>
+</tr>
+<tr>
+<td>Density</td>
+<td>→ kg/m³</td>
+<td>kg/m³, g/cm³, g/mL, kg/L, lb/ft³, lb/in³, lb/gal</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Momentum</td>
+<td>→ kg·m/s</td>
+<td>kg<em>m/s, N</em>s, lb<em>ft/s, slug</em>ft/s, lbf<em>s</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>MassFlowRate</td>
+<td>→ kg/s</td>
+<td>kg/s, kg/min, kg/h, g/s, lb/s, lb/min, lb/h, t/h</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>VolumetricFlowRate</td>
+<td>→ m³/s</td>
+<td>m³/s, m³/h, L/s, L/min, L/h, ft³/s, cfs, cfm, gpm, bbl/day, bpd, MMSCFD, MMSCFD_petro, MMSCFD_iupac, MSCFD, SCFD, SCFM</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>DynamicViscosity</td>
+<td>→ Pa·s</td>
+<td>Pas, mPa<em>s, P, cP, lb/(ft</em>s), lb/(ft<em>hr)</em></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>KinematicViscosity</td>
+<td>→ m²/s</td>
+<td>m²/s, mm²/s, St, cSt, ft²/s</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ThermalConductivity</td>
+<td>→ W/(m·K)</td>
+<td>W/(mK), kW/(m<em>K), BTU/(hr</em>ft*°F), cal/(s<em>cm</em>°C)</td>
+<td></td>
+</tr>
+<tr>
+<td>HeatCapacity</td>
+<td>→ J/K</td>
+<td>J/K, kJ/K, BTU/°F, cal/K</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SpecificHeatCapacity</td>
+<td>→ J/(kg·K)</td>
+<td>J/(kg<em>K), kJ/(kg</em>K), cal/(g*°C), BTU/(lb*°F)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HeatFluxDensity</td>
+<td>→ W/m²</td>
+<td>W/m², kW/m², BTU/(hr<em>ft²), cal/(s</em>cm²)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SpecificEnergy</td>
+<td>→ J/kg</td>
+<td>J/kg, kJ/kg, MJ/kg, BTU/lb, cal/g, kcal/kg, Wh/kg, kWh/kg</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EnergyDensity</td>
+<td>→ J/m³</td>
+<td>J/m³, kJ/m³, MJ/m³, BTU/ft³, Wh/L, kWh/L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SpecificVolume</td>
+<td>→ m³/kg</td>
+<td>m³/kg, L/kg, ft³/lb, cm³/g</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AreaDensity</td>
+<td>→ kg/m²</td>
+<td>kg/m², g/m², lb/ft², oz/yd²</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SurfaceTension</td>
+<td>→ N/m</td>
+<td>N/m, mN/m, dyn/cm, lbf/ft, lbf/in</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ElectricCharge</td>
+<td>→ C</td>
+<td>C, mC, μC, nC, pC, Ah, mAh</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Voltage</td>
+<td>→ V</td>
+<td>V, mV, μV, kV, MV</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ElectricResistance</td>
+<td>→ Ω</td>
+<td>Ω, ohm, mΩ, kΩ, MΩ, GΩ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ElectricalConductance</td>
+<td>→ S</td>
+<td>S, mS, μS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ElectricCapacitance</td>
+<td>→ F</td>
+<td>F, mF, μF, nF, pF</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Inductance</td>
+<td>→ H</td>
+<td>H, mH, μH, nH, pH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Dimensionless</td>
+<td>→ 1</td>
+<td>1 (and the bare-number parser)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="mmscfd-variants">MMSCFD variants</h2>
+<p><code>MMSCFD</code> defaults to GPSA / AGA Report No. 3 standard conditions (14.73 psia, 60 °F), the convention used on US interstate gas pipelines. Variants:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Conditions</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MMSCFD</code></td>
+<td>14.73 psia, 60 °F</td>
+<td>Default. GPSA / AGA.</td>
+</tr>
+<tr>
+<td><code>MMSCFD_petro</code></td>
+<td>14.696 psia, 60 °F</td>
+<td>Petroleum / refining.</td>
+</tr>
+<tr>
+<td><code>MMSCFD_iupac</code></td>
+<td>100 kPa, 0 °C</td>
+<td>IUPAC standard.</td>
+</tr>
+</tbody>
+</table>
+<p>The volumetric conversion is the same for all three (geometric <code>ft³ → m³</code>); the variants differ only in the conditions they <em>carry</em>. If a future release adds mass-flow-from-volumetric-flow conversion via the ideal gas law, the conditions become load-bearing.</p>
+<h2 id="how-to-register-additional-units">How to register additional units</h2>
+<p>Out of scope for v1 — the catalog is frozen at module load to make multithreaded reads lock-free. If your domain needs a unit not listed, file an issue against the repository and we'll evaluate whether to add it to the catalog or whether you should use the parametric form (planned for v1.x).</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/docs/articles/catalog.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

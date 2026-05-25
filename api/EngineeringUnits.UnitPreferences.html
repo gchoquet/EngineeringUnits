@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UnitPreferences | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UnitPreferences | EngineeringUnits API Documentation ">
+      
+      <meta name="description" content="Per-dimension display-unit preferences plus notation style. Used by the &amp;quot;P&amp;quot; format code and by .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/new/main/apiSpec/new?filename=EngineeringUnits_UnitPreferences.md&amp;value=---%0Auid%3A%20EngineeringUnits.UnitPreferences%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EngineeringUnits.UnitPreferences">
+
+
+
+  <h1 id="EngineeringUnits_UnitPreferences" data-uid="EngineeringUnits.UnitPreferences" class="text-break">
+Class UnitPreferences  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EngineeringUnits.html">EngineeringUnits</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EngineeringUnits.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Per-dimension display-unit preferences plus notation style. Used by the
+<code>&quot;P&quot;</code> format code and by <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToDualString">ToDualString()</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class UnitPreferences</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UnitPreferences</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="EngineeringUnits_UnitPreferences_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Preferences are a per-dimension map (Decision 14.17). There is no binary
+SI-vs-US toggle because even within SI the conventionally-preferred unit
+depends on the dimension and the application — meter for length, kilogram
+for mass, but kilometer for travel and millimeter for machining.</p>
+<p>
+Built-in profiles (<a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_SIScientific">SIScientific</a>, <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_SIEveryday">SIEveryday</a>,
+<a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_UsCustomary">UsCustomary</a>, <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_UsEngineering">UsEngineering</a>, <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_OilAndGas">OilAndGas</a>,
+<a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_Machining">Machining</a>) cover common contexts. <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_Clone">Clone()</a> any of
+them to customize.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EngineeringUnits_UnitPreferences_Default_" data-uid="EngineeringUnits.UnitPreferences.Default*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_Default" data-uid="EngineeringUnits.UnitPreferences.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ambient preferences used by the <code>&quot;P&quot;</code> format code.
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threadstaticattribute">ThreadStaticAttribute</a>-scoped so multithreaded hosts (Excel
+calc threads, ASP.NET Core requests) get independent values. Default
+(when unset) is <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_SIScientific">SIScientific</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnitPreferences Default { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_Machining_" data-uid="EngineeringUnits.UnitPreferences.Machining*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_Machining" data-uid="EngineeringUnits.UnitPreferences.Machining">
+  Machining
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Precision-machining context (mm for length, MPa for pressure).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnitPreferences Machining { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_Notation_" data-uid="EngineeringUnits.UnitPreferences.Notation*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_Notation" data-uid="EngineeringUnits.UnitPreferences.Notation">
+  Notation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notation style for compound units.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotationStyle Notation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.NotationStyle.html">NotationStyle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_OilAndGas_" data-uid="EngineeringUnits.UnitPreferences.OilAndGas*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_OilAndGas" data-uid="EngineeringUnits.UnitPreferences.OilAndGas">
+  OilAndGas
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Petroleum / natural-gas industry (bbl, MMSCFD-deferred, psia, °F).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnitPreferences OilAndGas { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_SIEveryday_" data-uid="EngineeringUnits.UnitPreferences.SIEveryday*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_SIEveryday" data-uid="EngineeringUnits.UnitPreferences.SIEveryday">
+  SIEveryday
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>SI-flavored but practical units (km, kg, h, °C, kPa, kJ, kW, ...).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnitPreferences SIEveryday { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_SIScientific_" data-uid="EngineeringUnits.UnitPreferences.SIScientific*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_SIScientific" data-uid="EngineeringUnits.UnitPreferences.SIScientific">
+  SIScientific
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>SI base units with Unicode notation (m, kg, s, K, Pa, J, W, ...).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnitPreferences SIScientific { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_UsCustomary_" data-uid="EngineeringUnits.UnitPreferences.UsCustomary*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_UsCustomary" data-uid="EngineeringUnits.UnitPreferences.UsCustomary">
+  UsCustomary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>US customary units (ft, lb, s, °F, psi, BTU, hp, ...).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnitPreferences UsCustomary { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_UsEngineering_" data-uid="EngineeringUnits.UnitPreferences.UsEngineering*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_UsEngineering" data-uid="EngineeringUnits.UnitPreferences.UsEngineering">
+  UsEngineering
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>US engineering practice (similar to UsCustomary but with absolute-pressure psi-a and lbm for mass).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnitPreferences UsEngineering { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EngineeringUnits_UnitPreferences_Clone_" data-uid="EngineeringUnits.UnitPreferences.Clone*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_Clone" data-uid="EngineeringUnits.UnitPreferences.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of this preferences object so callers can customize without affecting the source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnitPreferences Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnitPreferences.html">UnitPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_GetPreferred_" data-uid="EngineeringUnits.UnitPreferences.GetPreferred*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_GetPreferred_EngineeringUnits_DimensionSignature_" data-uid="EngineeringUnits.UnitPreferences.GetPreferred(EngineeringUnits.DimensionSignature)">
+  GetPreferred(DimensionSignature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the preferred unit for the given dimension, or null if no preference is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Unit? GetPreferred(DimensionSignature dim)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dim</code> <a class="xref" href="EngineeringUnits.DimensionSignature.html">DimensionSignature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Unit.html">Unit</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_UnitPreferences_Prefer_" data-uid="EngineeringUnits.UnitPreferences.Prefer*"></a>
+
+  <h3 id="EngineeringUnits_UnitPreferences_Prefer_System_String_" data-uid="EngineeringUnits.UnitPreferences.Prefer(System.String)">
+  Prefer(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the preferred display unit for whatever dimension this symbol carries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Prefer(string unitSymbol)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unitSymbol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/UnitPreferences.cs/#L31" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

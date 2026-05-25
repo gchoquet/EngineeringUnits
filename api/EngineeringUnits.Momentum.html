@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Momentum | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Momentum | EngineeringUnits API Documentation ">
+      
+      <meta name="description" content="Linear momentum (mass &#215; velocity). SI base unit: kilogram-meter per second (kg&#183;m/s).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/new/main/apiSpec/new?filename=EngineeringUnits_Momentum.md&amp;value=---%0Auid%3A%20EngineeringUnits.Momentum%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EngineeringUnits.Momentum">
+
+
+
+  <h1 id="EngineeringUnits_Momentum" data-uid="EngineeringUnits.Momentum" class="text-break">
+Class Momentum  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EngineeringUnits.html">EngineeringUnits</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EngineeringUnits.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Linear momentum (mass × velocity). SI base unit: kilogram-meter per second (kg·m/s).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Momentum : EngineeringUnit, IFormattable, IComparable&lt;EngineeringUnit&gt;, IEquatable&lt;EngineeringUnit&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></div>
+      <div><span class="xref">Momentum</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CanonicalValue">EngineeringUnit.CanonicalValue</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_DisplayUnit">EngineeringUnit.DisplayUnit</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Dimension">EngineeringUnit.Dimension</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Precision">EngineeringUnit.Precision</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Value">EngineeringUnit.Value</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_As_System_String_">EngineeringUnit.As(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString">EngineeringUnit.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString_System_String_">EngineeringUnit.ToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString_System_String_System_IFormatProvider_">EngineeringUnit.ToString(string, IFormatProvider)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToDualString">EngineeringUnit.ToDualString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_">EngineeringUnit.Equals(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_System_Double_">EngineeringUnit.Equals(EngineeringUnit, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CompareTo_EngineeringUnits_EngineeringUnit_">EngineeringUnit.CompareTo(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Int32_">EngineeringUnit.Pow(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Double_">EngineeringUnit.Pow(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Abs">EngineeringUnit.Abs()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EngineeringUnits_Momentum__ctor_" data-uid="EngineeringUnits.Momentum.#ctor*"></a>
+
+  <h3 id="EngineeringUnits_Momentum__ctor_System_Double_System_String_" data-uid="EngineeringUnits.Momentum.#ctor(System.Double,System.String)">
+  Momentum(double, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Momentum(double value, string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EngineeringUnits_Momentum_Equals_" data-uid="EngineeringUnits.Momentum.Equals*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_Equals_System_Object_" data-uid="EngineeringUnits.Momentum.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_GetHashCode_" data-uid="EngineeringUnits.Momentum.GetHashCode*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_GetHashCode" data-uid="EngineeringUnits.Momentum.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_In_" data-uid="EngineeringUnits.Momentum.In*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_In_System_String_" data-uid="EngineeringUnits.Momentum.In(System.String)">
+  In(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Momentum In(string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_Parse_" data-uid="EngineeringUnits.Momentum.Parse*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_Parse_System_String_" data-uid="EngineeringUnits.Momentum.Parse(System.String)">
+  Parse(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Momentum Parse(string s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_TryParse_" data-uid="EngineeringUnits.Momentum.TryParse*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_TryParse_System_String_EngineeringUnits_Momentum__" data-uid="EngineeringUnits.Momentum.TryParse(System.String,EngineeringUnits.Momentum@)">
+  TryParse(string?, out Momentum?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string? s, out Momentum? result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="EngineeringUnits_Momentum_op_Addition_" data-uid="EngineeringUnits.Momentum.op_Addition*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Addition_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_Addition(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator +(Momentum, Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Momentum operator +(Momentum a, Momentum b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Division_" data-uid="EngineeringUnits.Momentum.op_Division*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Division_EngineeringUnits_Momentum_EngineeringUnits_Mass_" data-uid="EngineeringUnits.Momentum.op_Division(EngineeringUnits.Momentum,EngineeringUnits.Mass)">
+  operator /(Momentum, Mass)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Momentum / Mass → Velocity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Velocity operator /(Momentum p, Mass m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>m</code> <a class="xref" href="EngineeringUnits.Mass.html">Mass</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Velocity.html">Velocity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Division_" data-uid="EngineeringUnits.Momentum.op_Division*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Division_EngineeringUnits_Momentum_EngineeringUnits_Time_" data-uid="EngineeringUnits.Momentum.op_Division(EngineeringUnits.Momentum,EngineeringUnits.Time)">
+  operator /(Momentum, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Momentum / Time → Force (impulse-momentum relation).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Force operator /(Momentum p, Time t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="EngineeringUnits.Time.html">Time</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Force.html">Force</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Division_" data-uid="EngineeringUnits.Momentum.op_Division*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Division_EngineeringUnits_Momentum_EngineeringUnits_Velocity_" data-uid="EngineeringUnits.Momentum.op_Division(EngineeringUnits.Momentum,EngineeringUnits.Velocity)">
+  operator /(Momentum, Velocity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Momentum / Velocity → Mass.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Mass operator /(Momentum p, Velocity v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>v</code> <a class="xref" href="EngineeringUnits.Velocity.html">Velocity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Mass.html">Mass</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Division_" data-uid="EngineeringUnits.Momentum.op_Division*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Division_EngineeringUnits_Momentum_System_Double_" data-uid="EngineeringUnits.Momentum.op_Division(EngineeringUnits.Momentum,System.Double)">
+  operator /(Momentum, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Momentum operator /(Momentum a, double scalar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Equality_" data-uid="EngineeringUnits.Momentum.op_Equality*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Equality_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_Equality(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator ==(Momentum?, Momentum?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Momentum? a, Momentum? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_GreaterThan_" data-uid="EngineeringUnits.Momentum.op_GreaterThan*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_GreaterThan_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_GreaterThan(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator &gt;(Momentum, Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(Momentum a, Momentum b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_GreaterThanOrEqual_" data-uid="EngineeringUnits.Momentum.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_GreaterThanOrEqual_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_GreaterThanOrEqual(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator &gt;=(Momentum, Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Momentum a, Momentum b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Inequality_" data-uid="EngineeringUnits.Momentum.op_Inequality*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Inequality_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_Inequality(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator !=(Momentum?, Momentum?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Momentum? a, Momentum? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_LessThan_" data-uid="EngineeringUnits.Momentum.op_LessThan*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_LessThan_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_LessThan(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator &lt;(Momentum, Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Momentum a, Momentum b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_LessThanOrEqual_" data-uid="EngineeringUnits.Momentum.op_LessThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_LessThanOrEqual_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_LessThanOrEqual(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator &lt;=(Momentum, Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Momentum a, Momentum b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Multiply_" data-uid="EngineeringUnits.Momentum.op_Multiply*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Multiply_EngineeringUnits_Momentum_System_Double_" data-uid="EngineeringUnits.Momentum.op_Multiply(EngineeringUnits.Momentum,System.Double)">
+  operator *(Momentum, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Momentum operator *(Momentum a, double scalar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Multiply_" data-uid="EngineeringUnits.Momentum.op_Multiply*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Multiply_System_Double_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_Multiply(System.Double,EngineeringUnits.Momentum)">
+  operator *(double, Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Momentum operator *(double scalar, Momentum a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_Subtraction_" data-uid="EngineeringUnits.Momentum.op_Subtraction*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_Subtraction_EngineeringUnits_Momentum_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_Subtraction(EngineeringUnits.Momentum,EngineeringUnits.Momentum)">
+  operator -(Momentum, Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Momentum operator -(Momentum a, Momentum b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Momentum_op_UnaryNegation_" data-uid="EngineeringUnits.Momentum.op_UnaryNegation*"></a>
+
+  <h3 id="EngineeringUnits_Momentum_op_UnaryNegation_EngineeringUnits_Momentum_" data-uid="EngineeringUnits.Momentum.op_UnaryNegation(EngineeringUnits.Momentum)">
+  operator -(Momentum)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Momentum operator -(Momentum a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Momentum.cs/#L7" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

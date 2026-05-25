@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HeatCapacity | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HeatCapacity | EngineeringUnits API Documentation ">
+      
+      <meta name="description" content="Heat capacity (per object, not per mass). SI base unit: joule per kelvin (J/K).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/new/main/apiSpec/new?filename=EngineeringUnits_HeatCapacity.md&amp;value=---%0Auid%3A%20EngineeringUnits.HeatCapacity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EngineeringUnits.HeatCapacity">
+
+
+
+  <h1 id="EngineeringUnits_HeatCapacity" data-uid="EngineeringUnits.HeatCapacity" class="text-break">
+Class HeatCapacity  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EngineeringUnits.html">EngineeringUnits</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EngineeringUnits.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Heat capacity (per object, not per mass). SI base unit: joule per kelvin (J/K).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class HeatCapacity : EngineeringUnit, IFormattable, IComparable&lt;EngineeringUnit&gt;, IEquatable&lt;EngineeringUnit&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></div>
+      <div><span class="xref">HeatCapacity</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CanonicalValue">EngineeringUnit.CanonicalValue</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_DisplayUnit">EngineeringUnit.DisplayUnit</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Dimension">EngineeringUnit.Dimension</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Precision">EngineeringUnit.Precision</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Value">EngineeringUnit.Value</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_As_System_String_">EngineeringUnit.As(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString">EngineeringUnit.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString_System_String_">EngineeringUnit.ToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString_System_String_System_IFormatProvider_">EngineeringUnit.ToString(string, IFormatProvider)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToDualString">EngineeringUnit.ToDualString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_">EngineeringUnit.Equals(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_System_Double_">EngineeringUnit.Equals(EngineeringUnit, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CompareTo_EngineeringUnits_EngineeringUnit_">EngineeringUnit.CompareTo(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Int32_">EngineeringUnit.Pow(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Double_">EngineeringUnit.Pow(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Abs">EngineeringUnit.Abs()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EngineeringUnits_HeatCapacity__ctor_" data-uid="EngineeringUnits.HeatCapacity.#ctor*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity__ctor_System_Double_System_String_" data-uid="EngineeringUnits.HeatCapacity.#ctor(System.Double,System.String)">
+  HeatCapacity(double, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HeatCapacity(double value, string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EngineeringUnits_HeatCapacity_Equals_" data-uid="EngineeringUnits.HeatCapacity.Equals*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_Equals_System_Object_" data-uid="EngineeringUnits.HeatCapacity.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_GetHashCode_" data-uid="EngineeringUnits.HeatCapacity.GetHashCode*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_GetHashCode" data-uid="EngineeringUnits.HeatCapacity.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_In_" data-uid="EngineeringUnits.HeatCapacity.In*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_In_System_String_" data-uid="EngineeringUnits.HeatCapacity.In(System.String)">
+  In(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HeatCapacity In(string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_Parse_" data-uid="EngineeringUnits.HeatCapacity.Parse*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_Parse_System_String_" data-uid="EngineeringUnits.HeatCapacity.Parse(System.String)">
+  Parse(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HeatCapacity Parse(string s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_TryParse_" data-uid="EngineeringUnits.HeatCapacity.TryParse*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_TryParse_System_String_EngineeringUnits_HeatCapacity__" data-uid="EngineeringUnits.HeatCapacity.TryParse(System.String,EngineeringUnits.HeatCapacity@)">
+  TryParse(string?, out HeatCapacity?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string? s, out HeatCapacity? result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Addition_" data-uid="EngineeringUnits.HeatCapacity.op_Addition*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Addition_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_Addition(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator +(HeatCapacity, HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HeatCapacity operator +(HeatCapacity a, HeatCapacity b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Division_" data-uid="EngineeringUnits.HeatCapacity.op_Division*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Division_EngineeringUnits_HeatCapacity_EngineeringUnits_Mass_" data-uid="EngineeringUnits.HeatCapacity.op_Division(EngineeringUnits.HeatCapacity,EngineeringUnits.Mass)">
+  operator /(HeatCapacity, Mass)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HeatCapacity / Mass → SpecificHeatCapacity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SpecificHeatCapacity operator /(HeatCapacity hc, Mass m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hc</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>m</code> <a class="xref" href="EngineeringUnits.Mass.html">Mass</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.SpecificHeatCapacity.html">SpecificHeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Division_" data-uid="EngineeringUnits.HeatCapacity.op_Division*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Division_EngineeringUnits_HeatCapacity_System_Double_" data-uid="EngineeringUnits.HeatCapacity.op_Division(EngineeringUnits.HeatCapacity,System.Double)">
+  operator /(HeatCapacity, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HeatCapacity operator /(HeatCapacity a, double scalar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Equality_" data-uid="EngineeringUnits.HeatCapacity.op_Equality*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Equality_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_Equality(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator ==(HeatCapacity?, HeatCapacity?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(HeatCapacity? a, HeatCapacity? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_GreaterThan_" data-uid="EngineeringUnits.HeatCapacity.op_GreaterThan*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_GreaterThan_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_GreaterThan(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator &gt;(HeatCapacity, HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(HeatCapacity a, HeatCapacity b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_GreaterThanOrEqual_" data-uid="EngineeringUnits.HeatCapacity.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_GreaterThanOrEqual_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_GreaterThanOrEqual(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator &gt;=(HeatCapacity, HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(HeatCapacity a, HeatCapacity b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Inequality_" data-uid="EngineeringUnits.HeatCapacity.op_Inequality*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Inequality_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_Inequality(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator !=(HeatCapacity?, HeatCapacity?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(HeatCapacity? a, HeatCapacity? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_LessThan_" data-uid="EngineeringUnits.HeatCapacity.op_LessThan*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_LessThan_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_LessThan(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator &lt;(HeatCapacity, HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(HeatCapacity a, HeatCapacity b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_LessThanOrEqual_" data-uid="EngineeringUnits.HeatCapacity.op_LessThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_LessThanOrEqual_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_LessThanOrEqual(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator &lt;=(HeatCapacity, HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(HeatCapacity a, HeatCapacity b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Multiply_" data-uid="EngineeringUnits.HeatCapacity.op_Multiply*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Multiply_EngineeringUnits_HeatCapacity_System_Double_" data-uid="EngineeringUnits.HeatCapacity.op_Multiply(EngineeringUnits.HeatCapacity,System.Double)">
+  operator *(HeatCapacity, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HeatCapacity operator *(HeatCapacity a, double scalar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Multiply_" data-uid="EngineeringUnits.HeatCapacity.op_Multiply*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Multiply_System_Double_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_Multiply(System.Double,EngineeringUnits.HeatCapacity)">
+  operator *(double, HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HeatCapacity operator *(double scalar, HeatCapacity a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_Subtraction_" data-uid="EngineeringUnits.HeatCapacity.op_Subtraction*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_Subtraction_EngineeringUnits_HeatCapacity_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_Subtraction(EngineeringUnits.HeatCapacity,EngineeringUnits.HeatCapacity)">
+  operator -(HeatCapacity, HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HeatCapacity operator -(HeatCapacity a, HeatCapacity b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_HeatCapacity_op_UnaryNegation_" data-uid="EngineeringUnits.HeatCapacity.op_UnaryNegation*"></a>
+
+  <h3 id="EngineeringUnits_HeatCapacity_op_UnaryNegation_EngineeringUnits_HeatCapacity_" data-uid="EngineeringUnits.HeatCapacity.op_UnaryNegation(EngineeringUnits.HeatCapacity)">
+  operator -(HeatCapacity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HeatCapacity operator -(HeatCapacity a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/HeatCapacity.cs/#L7" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
