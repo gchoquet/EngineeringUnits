@@ -33,6 +33,7 @@ namespace EngineeringUnits
             SeedMass();
             SeedTime();
             SeedTemperature();
+            SeedAmountOfSubstance();
             SeedAngle();
             SeedArea();
             SeedVolume();
@@ -56,6 +57,7 @@ namespace EngineeringUnits
             SeedHeatFluxDensity();
             SeedMomentum();
             SeedSurfaceTension();
+            SeedEnergyPerArea();
             SeedSpecificEnergy();
             SeedEnergyDensity();
             SeedSpecificVolume();
@@ -67,6 +69,11 @@ namespace EngineeringUnits
             SeedElectricalConductance();
             SeedElectricCapacitance();
             SeedInductance();
+            SeedMolarMass();
+            SeedMolarEnergy();
+            SeedMolarHeatCapacity();
+            SeedMolarDensity();
+            SeedJouleThomson();
             BuildLongNameIndex();
             SeedAliases();
             RegisterSubclasses();
@@ -118,6 +125,12 @@ namespace EngineeringUnits
             Internal.SubclassRegistry.Register(ElectricalConductance.Dim,  "S", (u, cv) => new ElectricalConductance(u, cv));
             Internal.SubclassRegistry.Register(ElectricCapacitance.Dim,    "F", (u, cv) => new ElectricCapacitance(u, cv));
             Internal.SubclassRegistry.Register(Inductance.Dim,             "H", (u, cv) => new Inductance(u, cv));
+            // Molar
+            Internal.SubclassRegistry.Register(AmountOfSubstance.Dim,      "mol",        (u, cv) => new AmountOfSubstance(u, cv));
+            Internal.SubclassRegistry.Register(MolarMass.Dim,              "kg/mol",     (u, cv) => new MolarMass(u, cv));
+            Internal.SubclassRegistry.Register(MolarEnergy.Dim,            "J/mol",      (u, cv) => new MolarEnergy(u, cv));
+            Internal.SubclassRegistry.Register(MolarHeatCapacity.Dim,      "J/(mol*K)",  (u, cv) => new MolarHeatCapacity(u, cv));
+            Internal.SubclassRegistry.Register(MolarDensity.Dim,           "mol/m^3",    (u, cv) => new MolarDensity(u, cv));
             // Dimensionless
             Internal.SubclassRegistry.Register(DimensionSignature.Dimensionless, "1", (u, cv) => new DimensionlessQuantity(u, cv));
             _ = R;
@@ -241,6 +254,12 @@ namespace EngineeringUnits
             _aliases["fahrenheit"] = "degree Fahrenheit";
             _aliases["rankine"]    = "degree Rankine";
             _aliases["kelvins"]    = "kelvin";
+
+            // Amount of substance
+            _aliases["moles"]      = "mole";
+            _aliases["kilomoles"]  = "kilomole";
+            _aliases["lbmoles"]    = "pound-mole";
+            _aliases["lb-mol"]     = "pound-mole";    // hyphenated form some engineers use
 
             // Angle
             _aliases["radians"]      = "radian";
@@ -556,6 +575,9 @@ namespace EngineeringUnits
             Add("GW",      "gigawatt",        P, 1e9);
             Add("mW",      "milliwatt",       P, 1e-3);
             Add("hp",      "mechanical horsepower", P, 745.6998715822702);
+            Add("HP",      "mechanical horsepower", P, 745.6998715822702);
+            Add("BHP",     "brake horsepower",      P, 745.6998715822702);
+            Add("bhp",     "brake horsepower",      P, 745.6998715822702);
             Add("hp_e",    "electric horsepower",   P, 746.0);
             Add("hp_m",    "metric horsepower",     P, 735.49875);
             Add("BTU/hr",  "BTU per hour",    P, 1055.05585262 / 3600.0);
@@ -604,6 +626,12 @@ namespace EngineeringUnits
             Add("m^3/s",   "cubic meter per second", Vf, 1.0);
             Add("m³/s",    "cubic meter per second", Vf, 1.0);
             Add("m^3/h",   "cubic meter per hour",   Vf, 1.0 / 3600.0);
+            // Normal cubic meter per hour: geometric scale identical to m^3/h.
+            // The "N" prefix is informational (denotes that the volume is measured
+            // at a normal base condition such as 0 °C / 1 atm). EU does not apply
+            // a base-correction factor — see how MMSCFD / MMSCFD_petro / MMSCFD_iupac
+            // all share the same geometric scale.
+            Add("Nm^3/h",  "normal cubic meter per hour (geometric scale identical to m^3/h)", Vf, 1.0 / 3600.0);
             Add("L/s",     "liter per second",       Vf, 1e-3);
             Add("L/min",   "liter per minute",       Vf, 1e-3 / 60.0);
             Add("L/h",     "liter per hour",         Vf, 1e-3 / 3600.0);
@@ -757,6 +785,29 @@ namespace EngineeringUnits
             Add("lbf/in", "pound-force per inch", St, 4.4482216152605 / 0.0254);
         }
 
+        private static void SeedEnergyPerArea()
+        {
+            // M / T^2 — same dimension as SurfaceTension; symbols here are the
+            // fracture-mechanics / surface-energy spellings. Lookup is by symbol,
+            // so adding J/m^2 here does not conflict with N/m already seeded for
+            // SurfaceTension (they're numerically identical: 1 J/m² = 1 N/m).
+            var Ea = DimensionSignature.Mass - DimensionSignature.Time * 2;
+            Add("J/m^2",       "joule per square meter",         Ea, 1.0);
+            Add("J/m²",        "joule per square meter",         Ea, 1.0);
+            Add("kJ/m^2",      "kilojoule per square meter",     Ea, 1000.0);
+            Add("kJ/m²",       "kilojoule per square meter",     Ea, 1000.0);
+            Add("MJ/m^2",      "megajoule per square meter",     Ea, 1e6);
+            Add("MJ/m²",       "megajoule per square meter",     Ea, 1e6);
+            Add("J/cm^2",      "joule per square centimeter",    Ea, 1e4);
+            Add("J/cm²",       "joule per square centimeter",    Ea, 1e4);
+            Add("N/mm",        "newton per millimeter",          Ea, 1000.0);
+            // 1 ft·lbf = 1.355817948331 J; 1 in² = 0.00064516 m². Factor: 2101.452043...
+            Add("ft*lbf/in^2", "foot-pound-force per square inch", Ea, 1.355817948331 / 0.00064516);
+            Add("ft·lbf/in²",  "foot-pound-force per square inch", Ea, 1.355817948331 / 0.00064516);
+            Add("ft-lb/in^2",  "foot-pound per square inch",       Ea, 1.355817948331 / 0.00064516);
+            Add("ft-lb/in²",   "foot-pound per square inch",       Ea, 1.355817948331 / 0.00064516);
+        }
+
         private static void SeedSpecificEnergy()
         {
             // L^2 / T^2
@@ -765,10 +816,14 @@ namespace EngineeringUnits
             Add("kJ/kg",  "kilojoule per kilogram", Se, 1000.0);
             Add("MJ/kg",  "megajoule per kilogram", Se, 1e6);
             Add("BTU/lb", "BTU per pound",          Se, 2326.0);
+            Add("BTU/lbm","BTU per pound-mass",     Se, 2326.0);
             Add("cal/g",  "calorie per gram",       Se, 4184.0);
             Add("kcal/kg","kilocalorie per kilogram", Se, 4184.0);
             Add("Wh/kg",  "watt-hour per kilogram", Se, 3600.0);
             Add("kWh/kg", "kilowatt-hour per kilogram", Se, 3.6e6);
+            // Compressor head — ft·lbf per lbm. 1 ft·lbf = 1.355817948331 J; 1 lbm = 0.45359237 kg.
+            Add("ft*lbf/lbm", "foot-pound-force per pound-mass", Se, 1.355817948331 / 0.45359237);
+            Add("ft·lbf/lbm", "foot-pound-force per pound-mass", Se, 1.355817948331 / 0.45359237);
         }
 
         private static void SeedEnergyDensity()
@@ -781,6 +836,16 @@ namespace EngineeringUnits
             Add("MJ/m^3",  "megajoule per cubic-meter", Ed, 1e6);
             Add("BTU/ft^3","BTU per cubic-foot",        Ed, 37258.94576);
             Add("BTU/ft³", "BTU per cubic-foot",        Ed, 37258.94576);
+            // SCF is the same geometric volume as ft^3 (the "standard" prefix only
+            // documents the (P,T) at which the gas amount is referenced — it does
+            // not change the geometric conversion factor). Likewise Nm^3 is the
+            // same geometric volume as m^3. Per natural-gas industry convention,
+            // heating values are reported as BTU/SCF (USC) or MJ/Nm^3 (SIC).
+            Add("BTU/SCF", "BTU per standard cubic foot", Ed, 37258.94576);
+            Add("BTU/scf", "BTU per standard cubic foot", Ed, 37258.94576);
+            Add("MJ/Nm^3", "megajoule per normal cubic meter", Ed, 1e6);
+            Add("MJ/m^3",  "megajoule per cubic meter",   Ed, 1e6);
+            Add("kJ/Nm^3", "kilojoule per normal cubic meter", Ed, 1000.0);
             Add("Wh/L",    "watt-hour per liter",       Ed, 3.6e6);
             Add("kWh/L",   "kilowatt-hour per liter",   Ed, 3.6e9);
         }
@@ -891,6 +956,100 @@ namespace EngineeringUnits
             Add("uH",  "microhenry", H, 1e-6);
             Add("nH",  "nanohenry",  H, 1e-9);
             Add("pH",  "picohenry",  H, 1e-12);
+        }
+
+        private static void SeedAmountOfSubstance()
+        {
+            var N = DimensionSignature.AmountOfSubstance;
+            Add("mol",   "mole",       N, 1.0);
+            Add("kmol",  "kilomole",   N, 1000.0);
+            // 1 lbmol = "the mass in pounds equal to the molecular weight" expressed
+            // in moles → 1 lbmol = 453.59237 mol (same factor as lb→g).
+            Add("lbmol", "pound-mole", N, 453.59237);
+        }
+
+        private static void SeedMolarMass()
+        {
+            // M / N. Canonical: kg/mol.
+            // Numerically g/mol = kg/kmol = lb/lbmol (the value of "molecular weight"
+            // doesn't depend on which mole convention you use).
+            var MM = DimensionSignature.Mass - DimensionSignature.AmountOfSubstance;
+            Add("kg/mol",   "kilogram per mole",      MM, 1.0);
+            Add("g/mol",    "gram per mole",          MM, 1e-3);
+            Add("kg/kmol",  "kilogram per kilomole",  MM, 1e-3);
+            Add("lb/lbmol", "pound per pound-mole",   MM, 1e-3);
+        }
+
+        private static void SeedMolarEnergy()
+        {
+            // (L^2 * M / T^2) / N. Canonical: J/mol.
+            var ME = (DimensionSignature.Length * 2) + DimensionSignature.Mass
+                     - (DimensionSignature.Time * 2) - DimensionSignature.AmountOfSubstance;
+            Add("J/mol",     "joule per mole",        ME, 1.0);
+            Add("kJ/mol",    "kilojoule per mole",    ME, 1000.0);
+            Add("kJ/kmol",   "kilojoule per kilomole", ME, 1.0);          // numerically = J/mol
+            Add("J/kmol",    "joule per kilomole",    ME, 1e-3);
+            // 1 BTU/lbmol = 1055.05585 J / 453.59237 mol = 2.32600 J/mol
+            Add("BTU/lbmol", "BTU per pound-mole",    ME, 1055.05585262 / 453.59237);
+            // Cal-based variants (engineering / spectroscopy)
+            Add("cal/mol",   "calorie per mole",      ME, 4.184);
+            Add("kcal/mol",  "kilocalorie per mole",  ME, 4184.0);
+        }
+
+        private static void SeedMolarHeatCapacity()
+        {
+            // (L^2 * M / T^2) / (N * Θ). Canonical: J/(mol·K). Also molar entropy.
+            var MHC = (DimensionSignature.Length * 2) + DimensionSignature.Mass
+                      - (DimensionSignature.Time * 2)
+                      - DimensionSignature.AmountOfSubstance - DimensionSignature.Temperature;
+            Add("J/(mol*K)",       "joule per mole-kelvin",                 MHC, 1.0);
+            Add("J/mol-K",         "joule per mole-kelvin",                 MHC, 1.0);
+            Add("kJ/(mol*K)",      "kilojoule per mole-kelvin",             MHC, 1000.0);
+            Add("kJ/(kmol*K)",     "kilojoule per kilomole-kelvin",         MHC, 1.0);   // numerically = J/(mol*K)
+            Add("J/(kmol*K)",      "joule per kilomole-kelvin",             MHC, 1e-3);
+            Add("BTU/(lbmol*R)",   "BTU per pound-mole-Rankine",            MHC, 1055.05585262 / 453.59237 * 1.8);
+            Add("BTU/lbmol-R",     "BTU per pound-mole-Rankine",            MHC, 1055.05585262 / 453.59237 * 1.8);
+            // ASCII spellings using "degR" — same unit, alternate symbol convention used by
+            // some engineering style guides (parallels degF/degC).
+            Add("BTU/(lbmol*degR)","BTU per pound-mole-Rankine",            MHC, 1055.05585262 / 453.59237 * 1.8);
+            Add("BTU/lbmol-degR",  "BTU per pound-mole-Rankine",            MHC, 1055.05585262 / 453.59237 * 1.8);
+            Add("cal/(mol*K)",     "calorie per mole-kelvin",               MHC, 4.184);
+        }
+
+        private static void SeedJouleThomson()
+        {
+            // Joule-Thomson coefficient: temperature change per pressure change at
+            // constant enthalpy. Dimension = Θ / (M·L⁻¹·T⁻²) = Θ·L·M⁻¹·T².
+            // Canonical: K/Pa.
+            // Note: temperature DIFFERENCES are unit-equivalent K↔degC and degR↔degF,
+            // so "K/Pa" and "degC/Pa" are the same scale; "degR/psi" and "degF/psi"
+            // are the same scale. The named units below cover both the natural-gas
+            // engineering convention (degF/psi, K/bar) and the EoS canonical convention
+            // (K/kPa).
+            var JT = DimensionSignature.Temperature
+                     - DimensionSignature.Mass + DimensionSignature.Length
+                     + DimensionSignature.Time * 2;
+            Add("K/Pa",     "kelvin per pascal",          JT, 1.0);
+            Add("K/kPa",    "kelvin per kilopascal",      JT, 1e-3);
+            Add("K/MPa",    "kelvin per megapascal",      JT, 1e-6);
+            Add("K/bar",    "kelvin per bar",             JT, 1e-5);
+            Add("K/mbar",   "kelvin per millibar",        JT, 0.01);
+            Add("degC/bar", "degree Celsius per bar",     JT, 1e-5);    // ΔT same scale K↔degC
+            Add("degC/kPa", "degree Celsius per kilopascal", JT, 1e-3);
+            Add("degF/psi", "degree Fahrenheit per psi",  JT, (5.0 / 9.0) / 6894.757293168);
+            Add("degR/psi", "degree Rankine per psi",     JT, (5.0 / 9.0) / 6894.757293168);
+        }
+
+        private static void SeedMolarDensity()
+        {
+            // N / L^3. Canonical: mol/m^3. Conjugate of MolarMass when paired with
+            // mass-based Density via the mixture's molar mass.
+            var MD = DimensionSignature.AmountOfSubstance - (DimensionSignature.Length * 3);
+            Add("mol/m^3",   "mole per cubic meter",        MD, 1.0);
+            Add("mol/L",     "mole per liter",              MD, 1000.0);
+            Add("kmol/m^3",  "kilomole per cubic meter",    MD, 1000.0);   // numerically = mol/L
+            Add("mol/dm^3",  "mole per cubic decimeter",    MD, 1000.0);   // numerically = mol/L
+            Add("lbmol/ft^3","pound-mole per cubic foot",   MD, 453.59237 / (0.3048 * 0.3048 * 0.3048));
         }
     }
 }
