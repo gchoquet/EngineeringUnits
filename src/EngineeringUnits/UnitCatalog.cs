@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace EngineeringUnits
@@ -25,6 +26,11 @@ namespace EngineeringUnits
         // to the unit's long name. English plurals are too irregular to derive ("foot" -> "feet"),
         // so we list them explicitly.
         private static readonly Dictionary<string, string> _aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+        // Cache of units composed on demand from base units (e.g. "slug/ft^3"). Kept separate from the
+        // seeded dictionaries so those stay frozen (lock-free concurrent reads); this one is thread-safe
+        // for the writes the composer performs during multi-threaded recalculation.
+        private static readonly ConcurrentDictionary<string, Unit> _composed = new ConcurrentDictionary<string, Unit>(StringComparer.Ordinal);
 
         static UnitCatalog()
         {
@@ -151,6 +157,18 @@ namespace EngineeringUnits
         public static bool TryGet(string symbol, out Unit unit)
         {
             if (symbol is null) { unit = default; return false; }
+            if (TryGetExact(symbol, out unit)) return true;
+            // Fallback: compose the unit from known base units (e.g. "slug/ft^3" from slug and ft)
+            // so any valid product/quotient of seeded units resolves without being seeded itself.
+            if (TryComposeUnit(symbol, out unit)) return true;
+            unit = default;
+            return false;
+        }
+
+        // Exact (non-composing) resolution: symbol, then long name, then alias. Used both for
+        // top-level lookups and for resolving the individual tokens of a composed symbol.
+        private static bool TryGetExact(string symbol, out Unit unit)
+        {
             if (_units.TryGetValue(symbol, out unit)) return true;
             if (_byLongName.TryGetValue(symbol, out unit)) return true;
             if (_aliases.TryGetValue(symbol, out var canonicalLongName)
@@ -177,6 +195,60 @@ namespace EngineeringUnits
 
         /// <summary>Enumerates every registered unit. Safe to call from any thread.</summary>
         public static IEnumerable<Unit> All => _units.Values;
+
+        // Composes a unit on demand from a product/quotient of seeded base units, e.g.
+        // "slug/ft^3", "lb/in^3", "kg/hr", "m/s^2", "lbf*s/ft^2". Supports '*' (product), '/'
+        // (everything after the first '/' is a denominator), integer exponents via "^n" or the
+        // unicode superscripts ²/³, and the '·' multiply sign. Nested parentheses are NOT supported.
+        // Returns false (so the caller reports an unknown unit) if any token is unknown or affine
+        // (non-zero offset, e.g. degC/degF) — those cannot meaningfully form a compound unit.
+        private static bool TryComposeUnit(string symbol, out Unit unit)
+        {
+            if (_composed.TryGetValue(symbol, out unit)) return true;
+
+            string s = symbol.Replace("·", "*").Replace("²", "^2").Replace("³", "^3").Replace("⁴", "^4").Trim();
+            // Only attempt composition for things that actually look compound.
+            if (s.IndexOf('*') < 0 && s.IndexOf('/') < 0 && s.IndexOf('^') < 0) { unit = default; return false; }
+
+            var dim = default(DimensionSignature);   // dimensionless
+            double scale = 1.0;
+
+            var sides = s.Split('/');
+            for (int i = 0; i < sides.Length; i++)
+            {
+                bool denominator = i > 0;
+                foreach (var rawFactor in sides[i].Split('*'))
+                {
+                    var factor = rawFactor.Trim();
+                    if (factor.Length == 0) { unit = default; return false; }
+                    if (!TryParseFactor(factor, out var baseUnit, out int exp)) { unit = default; return false; }
+                    if (baseUnit.Offset != 0.0) { unit = default; return false; }   // affine: can't compose
+
+                    if (denominator) { dim -= baseUnit.Dimension * exp; scale /= Math.Pow(baseUnit.Scale, exp); }
+                    else             { dim += baseUnit.Dimension * exp; scale *= Math.Pow(baseUnit.Scale, exp); }
+                }
+            }
+
+            unit = new Unit(symbol, symbol, dim, scale, 0.0);
+            _composed[symbol] = unit;
+            return true;
+        }
+
+        // Parses a single factor "ft^3" -> (foot unit, 3) or "slug" -> (slug unit, 1). The base symbol
+        // must resolve via exact lookup; the exponent (if present) must be a non-zero integer.
+        private static bool TryParseFactor(string factor, out Unit baseUnit, out int exp)
+        {
+            exp = 1;
+            int caret = factor.IndexOf('^');
+            string baseSym = caret < 0 ? factor : factor.Substring(0, caret).Trim();
+            if (caret >= 0 &&
+                (!int.TryParse(factor.Substring(caret + 1).Trim(), out exp) || exp == 0))
+            {
+                baseUnit = default;
+                return false;
+            }
+            return TryGetExact(baseSym, out baseUnit);
+        }
 
         private static void Add(string symbol, string longName, DimensionSignature dim, double scale, double offset = 0.0)
         {
@@ -601,6 +673,8 @@ namespace EngineeringUnits
             Add("lb/in^3", "pound per cubic inch",   D, 0.45359237 / (0.0254 * 0.0254 * 0.0254));
             Add("lb/in³",  "pound per cubic inch",   D, 0.45359237 / (0.0254 * 0.0254 * 0.0254));
             Add("lb/gal",  "pound per US gallon",    D, 0.45359237 / 3.785411784e-3);
+            Add("slug/ft^3", "slug per cubic foot",  D, 14.59390294 / (0.3048 * 0.3048 * 0.3048));
+            Add("slug/ft³",  "slug per cubic foot",  D, 14.59390294 / (0.3048 * 0.3048 * 0.3048));
         }
 
         private static void SeedMassFlowRate()
