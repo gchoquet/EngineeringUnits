@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Temperature | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Temperature | EngineeringUnits API Documentation ">
+      
+      <meta name="description" content="An absolute temperature. SI base unit: kelvin.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/new/main/apiSpec/new?filename=EngineeringUnits_Temperature.md&amp;value=---%0Auid%3A%20EngineeringUnits.Temperature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EngineeringUnits.Temperature">
+
+
+
+  <h1 id="EngineeringUnits_Temperature" data-uid="EngineeringUnits.Temperature" class="text-break">
+Class Temperature  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EngineeringUnits.html">EngineeringUnits</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EngineeringUnits.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An absolute temperature. SI base unit: kelvin.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Temperature : EngineeringUnit, IFormattable, IComparable&lt;EngineeringUnit&gt;, IEquatable&lt;EngineeringUnit&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></div>
+      <div><span class="xref">Temperature</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CanonicalValue">EngineeringUnit.CanonicalValue</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_DisplayUnit">EngineeringUnit.DisplayUnit</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Dimension">EngineeringUnit.Dimension</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Precision">EngineeringUnit.Precision</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Value">EngineeringUnit.Value</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_As_System_String_">EngineeringUnit.As(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString">EngineeringUnit.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString_System_String_">EngineeringUnit.ToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString_System_String_System_IFormatProvider_">EngineeringUnit.ToString(string, IFormatProvider)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToDualString">EngineeringUnit.ToDualString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_">EngineeringUnit.Equals(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_System_Double_">EngineeringUnit.Equals(EngineeringUnit, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CompareTo_EngineeringUnits_EngineeringUnit_">EngineeringUnit.CompareTo(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Int32_">EngineeringUnit.Pow(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Double_">EngineeringUnit.Pow(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Abs">EngineeringUnit.Abs()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="EngineeringUnits_Temperature_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Supported units include K, °C / degC, °F / degF, and °R / degR. Note that
+non-Kelvin temperature units use affine (scale + offset) conversion rather
+than purely multiplicative scaling.</p>
+<p>
+<b>Arithmetic on absolute temperatures is intentionally restricted in v1.</b>
+Adding two temperatures is physically meaningless and throws. Subtraction
+produces a result in kelvin since the difference of two temperatures is a
+delta, and a proper <code>TemperatureDelta</code> type is deferred to v1.x
+(specification §14.9). For now, callers needing temperature arithmetic
+should reason in kelvin via <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_As_System_String_">As(string)</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EngineeringUnits_Temperature__ctor_" data-uid="EngineeringUnits.Temperature.#ctor*"></a>
+
+  <h3 id="EngineeringUnits_Temperature__ctor_System_Double_System_String_" data-uid="EngineeringUnits.Temperature.#ctor(System.Double,System.String)">
+  Temperature(double, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a temperature from a value and unit symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Temperature(double value, string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EngineeringUnits_Temperature_Equals_" data-uid="EngineeringUnits.Temperature.Equals*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_Equals_System_Object_" data-uid="EngineeringUnits.Temperature.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_GetHashCode_" data-uid="EngineeringUnits.Temperature.GetHashCode*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_GetHashCode" data-uid="EngineeringUnits.Temperature.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_In_" data-uid="EngineeringUnits.Temperature.In*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_In_System_String_" data-uid="EngineeringUnits.Temperature.In(System.String)">
+  In(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a> with the same canonical value expressed in the named unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Temperature In(string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_Parse_" data-uid="EngineeringUnits.Temperature.Parse*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_Parse_System_String_" data-uid="EngineeringUnits.Temperature.Parse(System.String)">
+  Parse(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses a temperature from a string of the form <code>&quot;25 degC&quot;</code> or <code>&quot;77 °F&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Temperature Parse(string s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_TryParse_" data-uid="EngineeringUnits.Temperature.TryParse*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_TryParse_System_String_EngineeringUnits_Temperature__" data-uid="EngineeringUnits.Temperature.TryParse(System.String,EngineeringUnits.Temperature@)">
+  TryParse(string?, out Temperature?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to parse a temperature from a string. Returns false on any failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string? s, out Temperature? result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="EngineeringUnits_Temperature_op_Addition_" data-uid="EngineeringUnits.Temperature.op_Addition*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_Addition_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_Addition(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator +(Temperature, Temperature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adding two absolute temperatures is physically meaningless and throws.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Temperature operator +(Temperature a, Temperature b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Always.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EngineeringUnits_Temperature_op_Equality_" data-uid="EngineeringUnits.Temperature.op_Equality*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_Equality_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_Equality(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator ==(Temperature?, Temperature?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Temperature? a, Temperature? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_op_GreaterThan_" data-uid="EngineeringUnits.Temperature.op_GreaterThan*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_GreaterThan_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_GreaterThan(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator &gt;(Temperature, Temperature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(Temperature a, Temperature b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_op_GreaterThanOrEqual_" data-uid="EngineeringUnits.Temperature.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_GreaterThanOrEqual_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_GreaterThanOrEqual(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator &gt;=(Temperature, Temperature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Temperature a, Temperature b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_op_Inequality_" data-uid="EngineeringUnits.Temperature.op_Inequality*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_Inequality_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_Inequality(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator !=(Temperature?, Temperature?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Temperature? a, Temperature? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_op_LessThan_" data-uid="EngineeringUnits.Temperature.op_LessThan*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_LessThan_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_LessThan(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator &lt;(Temperature, Temperature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Temperature a, Temperature b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_op_LessThanOrEqual_" data-uid="EngineeringUnits.Temperature.op_LessThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_LessThanOrEqual_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_LessThanOrEqual(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator &lt;=(Temperature, Temperature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Temperature a, Temperature b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_Temperature_op_Subtraction_" data-uid="EngineeringUnits.Temperature.op_Subtraction*"></a>
+
+  <h3 id="EngineeringUnits_Temperature_op_Subtraction_EngineeringUnits_Temperature_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.Temperature.op_Subtraction(EngineeringUnits.Temperature,EngineeringUnits.Temperature)">
+  operator -(Temperature, Temperature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtraction of two absolute temperatures yields a <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a>, expressed in the left operand's unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta operator -(Temperature a, Temperature b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/Temperature.cs/#L20" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

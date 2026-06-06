@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TemperatureDelta | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TemperatureDelta | EngineeringUnits API Documentation ">
+      
+      <meta name="description" content="A temperature difference (delta). Distinct from  because temperature differences obey linear-only conversion (no offset), while absolute temperatures use affine conversion.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/new/main/apiSpec/new?filename=EngineeringUnits_TemperatureDelta.md&amp;value=---%0Auid%3A%20EngineeringUnits.TemperatureDelta%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EngineeringUnits.TemperatureDelta">
+
+
+
+  <h1 id="EngineeringUnits_TemperatureDelta" data-uid="EngineeringUnits.TemperatureDelta" class="text-break">
+Class TemperatureDelta  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EngineeringUnits.html">EngineeringUnits</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EngineeringUnits.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A temperature difference (delta). Distinct from <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a> because
+temperature differences obey linear-only conversion (no offset), while absolute
+temperatures use affine conversion.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TemperatureDelta : EngineeringUnit, IFormattable, IComparable&lt;EngineeringUnit&gt;, IEquatable&lt;EngineeringUnit&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></div>
+      <div><span class="xref">TemperatureDelta</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CanonicalValue">EngineeringUnit.CanonicalValue</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_DisplayUnit">EngineeringUnit.DisplayUnit</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Dimension">EngineeringUnit.Dimension</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Precision">EngineeringUnit.Precision</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString">EngineeringUnit.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToString_System_String_">EngineeringUnit.ToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_ToDualString">EngineeringUnit.ToDualString()</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_">EngineeringUnit.Equals(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_System_Double_">EngineeringUnit.Equals(EngineeringUnit, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_CompareTo_EngineeringUnits_EngineeringUnit_">EngineeringUnit.CompareTo(EngineeringUnit)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Int32_">EngineeringUnit.Pow(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Pow_System_Double_">EngineeringUnit.Pow(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Abs">EngineeringUnit.Abs()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="EngineeringUnits_TemperatureDelta_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Examples:</p>
+<ul><li>1 °C delta = 1 K delta (same magnitude — both linear in K)</li><li>1 °F delta = 1 °R delta = 5/9 K delta (different scale, no offset)</li></ul>
+<p>
+Temperature - Temperature produces a TemperatureDelta. TemperatureDelta + Temperature
+produces a Temperature (raising the absolute by the delta). TemperatureDelta +
+TemperatureDelta is itself a TemperatureDelta. Two absolute temperatures cannot
+be added (throws — see <a class="xref" href="EngineeringUnits.Temperature.html#EngineeringUnits_Temperature_op_Addition_EngineeringUnits_Temperature_EngineeringUnits_Temperature_">operator +(Temperature, Temperature)</a>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EngineeringUnits_TemperatureDelta__ctor_" data-uid="EngineeringUnits.TemperatureDelta.#ctor*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta__ctor_System_Double_System_String_" data-uid="EngineeringUnits.TemperatureDelta.#ctor(System.Double,System.String)">
+  TemperatureDelta(double, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a temperature-delta from a value and the unit symbol of the scale
+the delta is expressed on. For Celsius and Kelvin deltas use the same symbols
+as absolute temperatures (numerically equivalent). For Fahrenheit / Rankine
+deltas the symbol's scale factor (5/9) is honored but the offset is ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TemperatureDelta(double value, string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EngineeringUnits_TemperatureDelta_Value_" data-uid="EngineeringUnits.TemperatureDelta.Value*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_Value" data-uid="EngineeringUnits.TemperatureDelta.Value">
+  Value
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The numeric value of this delta in <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_DisplayUnit">DisplayUnit</a>.
+Computed with linear conversion only (no offset).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EngineeringUnits_TemperatureDelta_As_" data-uid="EngineeringUnits.TemperatureDelta.As*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_As_System_String_" data-uid="EngineeringUnits.TemperatureDelta.As(System.String)">
+  As(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns this delta expressed in the named temperature unit. Linear conversion
+only — the unit's offset is intentionally ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double As(string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_Equals_" data-uid="EngineeringUnits.TemperatureDelta.Equals*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_Equals_System_Object_" data-uid="EngineeringUnits.TemperatureDelta.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_GetHashCode_" data-uid="EngineeringUnits.TemperatureDelta.GetHashCode*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_GetHashCode" data-uid="EngineeringUnits.TemperatureDelta.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_In_" data-uid="EngineeringUnits.TemperatureDelta.In*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_In_System_String_" data-uid="EngineeringUnits.TemperatureDelta.In(System.String)">
+  In(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a> with this delta expressed in the named unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TemperatureDelta In(string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_Parse_" data-uid="EngineeringUnits.TemperatureDelta.Parse*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_Parse_System_String_" data-uid="EngineeringUnits.TemperatureDelta.Parse(System.String)">
+  Parse(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses a string of the form <code>&quot;10 K&quot;</code> or <code>&quot;18 degF&quot;</code> as a temperature delta.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta Parse(string s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_ToString_" data-uid="EngineeringUnits.TemperatureDelta.ToString*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_ToString_System_String_System_IFormatProvider_" data-uid="EngineeringUnits.TemperatureDelta.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Formats this quantity. Supported format codes (see specification §8.2 and §14.17):</p>
+<ul><li><span class="term">G or null</span>General default — short symbol.</li><li><span class="term">L</span>Long unit name (e.g. <code>"feet"</code>).</li><li><span class="term">D</span>Dual — primary value plus SI or US-customary equivalent in parens.</li><li><span class="term">S</span>SI canonical (from <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_SIScientific">SIScientific</a>).</li><li><span class="term">U</span>US-customary canonical (from <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_UsCustomary">UsCustomary</a>).</li><li><span class="term">P</span>Preferred (from <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_Default">Default</a>).</li><li><span class="term">E</span>Scientific notation.</li><li><span class="term">N{n}</span>Force <code>n</code> significant figures, e.g. <code>"N6"</code>.</li><li><span class="term">{unit}</span>Force a specific unit, e.g. <code>"{m}"</code>.</li></ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_TryParse_" data-uid="EngineeringUnits.TemperatureDelta.TryParse*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_TryParse_System_String_EngineeringUnits_TemperatureDelta__" data-uid="EngineeringUnits.TemperatureDelta.TryParse(System.String,EngineeringUnits.TemperatureDelta@)">
+  TryParse(string?, out TemperatureDelta?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to parse a temperature delta. Returns false on any failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string? s, out TemperatureDelta? result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Addition_" data-uid="EngineeringUnits.TemperatureDelta.op_Addition*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Addition_EngineeringUnits_Temperature_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_Addition(EngineeringUnits.Temperature,EngineeringUnits.TemperatureDelta)">
+  operator +(Temperature, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Temperature + TemperatureDelta → Temperature (raises the absolute by the delta).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Temperature operator +(Temperature t, TemperatureDelta d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>d</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Addition_" data-uid="EngineeringUnits.TemperatureDelta.op_Addition*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Addition_EngineeringUnits_TemperatureDelta_EngineeringUnits_Temperature_" data-uid="EngineeringUnits.TemperatureDelta.op_Addition(EngineeringUnits.TemperatureDelta,EngineeringUnits.Temperature)">
+  operator +(TemperatureDelta, Temperature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>TemperatureDelta + Temperature → Temperature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Temperature operator +(TemperatureDelta d, Temperature t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Addition_" data-uid="EngineeringUnits.TemperatureDelta.op_Addition*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Addition_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_Addition(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator +(TemperatureDelta, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta operator +(TemperatureDelta a, TemperatureDelta b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Division_" data-uid="EngineeringUnits.TemperatureDelta.op_Division*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Division_EngineeringUnits_TemperatureDelta_System_Double_" data-uid="EngineeringUnits.TemperatureDelta.op_Division(EngineeringUnits.TemperatureDelta,System.Double)">
+  operator /(TemperatureDelta, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta operator /(TemperatureDelta a, double scalar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Equality_" data-uid="EngineeringUnits.TemperatureDelta.op_Equality*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Equality_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_Equality(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator ==(TemperatureDelta?, TemperatureDelta?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(TemperatureDelta? a, TemperatureDelta? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_GreaterThan_" data-uid="EngineeringUnits.TemperatureDelta.op_GreaterThan*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_GreaterThan_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_GreaterThan(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator &gt;(TemperatureDelta, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(TemperatureDelta a, TemperatureDelta b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_GreaterThanOrEqual_" data-uid="EngineeringUnits.TemperatureDelta.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_GreaterThanOrEqual_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_GreaterThanOrEqual(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator &gt;=(TemperatureDelta, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(TemperatureDelta a, TemperatureDelta b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Inequality_" data-uid="EngineeringUnits.TemperatureDelta.op_Inequality*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Inequality_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_Inequality(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator !=(TemperatureDelta?, TemperatureDelta?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(TemperatureDelta? a, TemperatureDelta? b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_LessThan_" data-uid="EngineeringUnits.TemperatureDelta.op_LessThan*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_LessThan_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_LessThan(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator &lt;(TemperatureDelta, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(TemperatureDelta a, TemperatureDelta b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_LessThanOrEqual_" data-uid="EngineeringUnits.TemperatureDelta.op_LessThanOrEqual*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_LessThanOrEqual_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_LessThanOrEqual(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator &lt;=(TemperatureDelta, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(TemperatureDelta a, TemperatureDelta b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Multiply_" data-uid="EngineeringUnits.TemperatureDelta.op_Multiply*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Multiply_EngineeringUnits_TemperatureDelta_System_Double_" data-uid="EngineeringUnits.TemperatureDelta.op_Multiply(EngineeringUnits.TemperatureDelta,System.Double)">
+  operator *(TemperatureDelta, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta operator *(TemperatureDelta a, double scalar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Multiply_" data-uid="EngineeringUnits.TemperatureDelta.op_Multiply*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Multiply_System_Double_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_Multiply(System.Double,EngineeringUnits.TemperatureDelta)">
+  operator *(double, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta operator *(double scalar, TemperatureDelta a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Subtraction_" data-uid="EngineeringUnits.TemperatureDelta.op_Subtraction*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Subtraction_EngineeringUnits_Temperature_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_Subtraction(EngineeringUnits.Temperature,EngineeringUnits.TemperatureDelta)">
+  operator -(Temperature, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Temperature - TemperatureDelta → Temperature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Temperature operator -(Temperature t, TemperatureDelta d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+    <dt><code>d</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_Subtraction_" data-uid="EngineeringUnits.TemperatureDelta.op_Subtraction*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_Subtraction_EngineeringUnits_TemperatureDelta_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_Subtraction(EngineeringUnits.TemperatureDelta,EngineeringUnits.TemperatureDelta)">
+  operator -(TemperatureDelta, TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta operator -(TemperatureDelta a, TemperatureDelta b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_TemperatureDelta_op_UnaryNegation_" data-uid="EngineeringUnits.TemperatureDelta.op_UnaryNegation*"></a>
+
+  <h3 id="EngineeringUnits_TemperatureDelta_op_UnaryNegation_EngineeringUnits_TemperatureDelta_" data-uid="EngineeringUnits.TemperatureDelta.op_UnaryNegation(EngineeringUnits.TemperatureDelta)">
+  operator -(TemperatureDelta)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TemperatureDelta operator -(TemperatureDelta a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/TemperatureDelta.cs/#L24" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

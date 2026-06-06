@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class EngineeringUnit | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EngineeringUnit | EngineeringUnits API Documentation ">
+      
+      <meta name="description" content="Abstract base class for all physical-quantity types. Carries a value expressed in canonical SI base units, a display unit, and significant-figure metadata.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/new/main/apiSpec/new?filename=EngineeringUnits_EngineeringUnit.md&amp;value=---%0Auid%3A%20EngineeringUnits.EngineeringUnit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EngineeringUnits.EngineeringUnit">
+
+
+
+  <h1 id="EngineeringUnits_EngineeringUnit" data-uid="EngineeringUnits.EngineeringUnit" class="text-break">
+Class EngineeringUnit  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EngineeringUnits.html">EngineeringUnits</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EngineeringUnits.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Abstract base class for all physical-quantity types. Carries a value expressed
+in canonical SI base units, a display unit, and significant-figure metadata.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class EngineeringUnit : IFormattable, IComparable&lt;EngineeringUnit&gt;, IEquatable&lt;EngineeringUnit&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">EngineeringUnit</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="EngineeringUnits.Acceleration.html">Acceleration</a></div>
+      <div><a class="xref" href="EngineeringUnits.AmountOfSubstance.html">AmountOfSubstance</a></div>
+      <div><a class="xref" href="EngineeringUnits.AngularVelocity.html">AngularVelocity</a></div>
+      <div><a class="xref" href="EngineeringUnits.Area.html">Area</a></div>
+      <div><a class="xref" href="EngineeringUnits.AreaDensity.html">AreaDensity</a></div>
+      <div><a class="xref" href="EngineeringUnits.Density.html">Density</a></div>
+      <div><a class="xref" href="EngineeringUnits.DerivedUnit.html">DerivedUnit</a></div>
+      <div><a class="xref" href="EngineeringUnits.DimensionlessQuantity.html">DimensionlessQuantity</a></div>
+      <div><a class="xref" href="EngineeringUnits.DynamicViscosity.html">DynamicViscosity</a></div>
+      <div><a class="xref" href="EngineeringUnits.ElectricCapacitance.html">ElectricCapacitance</a></div>
+      <div><a class="xref" href="EngineeringUnits.ElectricCharge.html">ElectricCharge</a></div>
+      <div><a class="xref" href="EngineeringUnits.ElectricCurrent.html">ElectricCurrent</a></div>
+      <div><a class="xref" href="EngineeringUnits.ElectricResistance.html">ElectricResistance</a></div>
+      <div><a class="xref" href="EngineeringUnits.ElectricalConductance.html">ElectricalConductance</a></div>
+      <div><a class="xref" href="EngineeringUnits.Energy.html">Energy</a></div>
+      <div><a class="xref" href="EngineeringUnits.EnergyDensity.html">EnergyDensity</a></div>
+      <div><a class="xref" href="EngineeringUnits.EnergyPerArea.html">EnergyPerArea</a></div>
+      <div><a class="xref" href="EngineeringUnits.Force.html">Force</a></div>
+      <div><a class="xref" href="EngineeringUnits.Frequency.html">Frequency</a></div>
+      <div><a class="xref" href="EngineeringUnits.HeatCapacity.html">HeatCapacity</a></div>
+      <div><a class="xref" href="EngineeringUnits.HeatFluxDensity.html">HeatFluxDensity</a></div>
+      <div><a class="xref" href="EngineeringUnits.Inductance.html">Inductance</a></div>
+      <div><a class="xref" href="EngineeringUnits.KinematicViscosity.html">KinematicViscosity</a></div>
+      <div><a class="xref" href="EngineeringUnits.Length.html">Length</a></div>
+      <div><a class="xref" href="EngineeringUnits.Mass.html">Mass</a></div>
+      <div><a class="xref" href="EngineeringUnits.MassFlowRate.html">MassFlowRate</a></div>
+      <div><a class="xref" href="EngineeringUnits.MolarDensity.html">MolarDensity</a></div>
+      <div><a class="xref" href="EngineeringUnits.MolarEnergy.html">MolarEnergy</a></div>
+      <div><a class="xref" href="EngineeringUnits.MolarHeatCapacity.html">MolarHeatCapacity</a></div>
+      <div><a class="xref" href="EngineeringUnits.MolarMass.html">MolarMass</a></div>
+      <div><a class="xref" href="EngineeringUnits.Momentum.html">Momentum</a></div>
+      <div><a class="xref" href="EngineeringUnits.PlaneAngle.html">PlaneAngle</a></div>
+      <div><a class="xref" href="EngineeringUnits.Power.html">Power</a></div>
+      <div><a class="xref" href="EngineeringUnits.Pressure.html">Pressure</a></div>
+      <div><a class="xref" href="EngineeringUnits.SpecificEnergy.html">SpecificEnergy</a></div>
+      <div><a class="xref" href="EngineeringUnits.SpecificHeatCapacity.html">SpecificHeatCapacity</a></div>
+      <div><a class="xref" href="EngineeringUnits.SpecificVolume.html">SpecificVolume</a></div>
+      <div><a class="xref" href="EngineeringUnits.SurfaceTension.html">SurfaceTension</a></div>
+      <div><a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a></div>
+      <div><a class="xref" href="EngineeringUnits.TemperatureDelta.html">TemperatureDelta</a></div>
+      <div><a class="xref" href="EngineeringUnits.ThermalConductivity.html">ThermalConductivity</a></div>
+      <div><a class="xref" href="EngineeringUnits.Time.html">Time</a></div>
+      <div><a class="xref" href="EngineeringUnits.Torque.html">Torque</a></div>
+      <div><a class="xref" href="EngineeringUnits.Velocity.html">Velocity</a></div>
+      <div><a class="xref" href="EngineeringUnits.Voltage.html">Voltage</a></div>
+      <div><a class="xref" href="EngineeringUnits.Volume.html">Volume</a></div>
+      <div><a class="xref" href="EngineeringUnits.VolumetricFlowRate.html">VolumetricFlowRate</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="EngineeringUnits_EngineeringUnit_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Instances are immutable. Subclasses ( <a class="xref" href="EngineeringUnits.Length.html">Length</a>, <a class="xref" href="EngineeringUnits.Mass.html">Mass</a>,
+<a class="xref" href="EngineeringUnits.Time.html">Time</a>, <a class="xref" href="EngineeringUnits.Temperature.html">Temperature</a>, …) represent specific dimensions
+and carry their own typed arithmetic operator overloads.</p>
+<p>
+Internally every quantity is stored in canonical SI base units, with the original
+display unit retained for formatting and for the left-operand-wins rule on
+arithmetic results (see specification §14.4).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EngineeringUnits_EngineeringUnit__ctor_" data-uid="EngineeringUnits.EngineeringUnit.#ctor*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit__ctor_System_Double_EngineeringUnits_Unit_" data-uid="EngineeringUnits.EngineeringUnit.#ctor(System.Double,EngineeringUnits.Unit)">
+  EngineeringUnit(double, Unit)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a quantity from a value expressed in the given display unit.
+The value is immediately converted to canonical SI for storage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EngineeringUnit(double value, Unit displayUnit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>displayUnit</code> <a class="xref" href="EngineeringUnits.Unit.html">Unit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EngineeringUnits_EngineeringUnit_CanonicalValue_" data-uid="EngineeringUnits.EngineeringUnit.CanonicalValue*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_CanonicalValue" data-uid="EngineeringUnits.EngineeringUnit.CanonicalValue">
+  CanonicalValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value expressed in canonical SI base units.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CanonicalValue { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Dimension_" data-uid="EngineeringUnits.EngineeringUnit.Dimension*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Dimension" data-uid="EngineeringUnits.EngineeringUnit.Dimension">
+  Dimension
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dimension signature, identifying this quantity's physical dimension.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DimensionSignature Dimension { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.DimensionSignature.html">DimensionSignature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_DisplayUnit_" data-uid="EngineeringUnits.EngineeringUnit.DisplayUnit*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_DisplayUnit" data-uid="EngineeringUnits.EngineeringUnit.DisplayUnit">
+  DisplayUnit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The unit used for display and as the result-unit when this is the left operand of arithmetic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Unit DisplayUnit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.Unit.html">Unit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Precision_" data-uid="EngineeringUnits.EngineeringUnit.Precision*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Precision" data-uid="EngineeringUnits.EngineeringUnit.Precision">
+  Precision
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Significant figures used for formatted display. Default is 4.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Precision { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Value_" data-uid="EngineeringUnits.EngineeringUnit.Value*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Value" data-uid="EngineeringUnits.EngineeringUnit.Value">
+  Value
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value expressed in <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_DisplayUnit">DisplayUnit</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Abs_" data-uid="EngineeringUnits.EngineeringUnit.Abs*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Abs" data-uid="EngineeringUnits.EngineeringUnit.Abs">
+  Abs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the absolute value of this quantity, preserving subclass type and
+display unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EngineeringUnit Abs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_As_" data-uid="EngineeringUnits.EngineeringUnit.As*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_As_System_String_" data-uid="EngineeringUnits.EngineeringUnit.As(System.String)">
+  As(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value expressed in the named unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double As(string unit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Target unit symbol (must have the same dimension as this quantity).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The numeric value in the target unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.UnknownUnitException.html">UnknownUnitException</a></dt>
+    <dd><p>If <code class="paramref">unit</code> is not registered.</p>
+</dd>
+    <dt><a class="xref" href="EngineeringUnits.DimensionMismatchException.html">DimensionMismatchException</a></dt>
+    <dd><p>If <code class="paramref">unit</code> has a different dimension.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_CompareTo_" data-uid="EngineeringUnits.EngineeringUnit.CompareTo*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_CompareTo_EngineeringUnits_EngineeringUnit_" data-uid="EngineeringUnits.EngineeringUnit.CompareTo(EngineeringUnits.EngineeringUnit)">
+  CompareTo(EngineeringUnit?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares two quantities of the same dimension by their canonical value.
+Throws if the dimensions differ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(EngineeringUnit? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Equals_" data-uid="EngineeringUnits.EngineeringUnit.Equals*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_" data-uid="EngineeringUnits.EngineeringUnit.Equals(EngineeringUnits.EngineeringUnit)">
+  Equals(EngineeringUnit?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if both operands have the same canonical value (bitwise) and the same dimension.
+Display unit is ignored. Use <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_System_Double_">Equals(EngineeringUnit?, double)</a> for tolerance comparison.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(EngineeringUnit? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Equals_" data-uid="EngineeringUnits.EngineeringUnit.Equals*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Equals_EngineeringUnits_EngineeringUnit_System_Double_" data-uid="EngineeringUnits.EngineeringUnit.Equals(EngineeringUnits.EngineeringUnit,System.Double)">
+  Equals(EngineeringUnit?, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if both operands are the same dimension and their canonical values agree within <code class="paramref">relativeTolerance</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(EngineeringUnit? other, double relativeTolerance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></dt>
+    <dd></dd>
+    <dt><code>relativeTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Equals_" data-uid="EngineeringUnits.EngineeringUnit.Equals*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Equals_System_Object_" data-uid="EngineeringUnits.EngineeringUnit.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_GetHashCode_" data-uid="EngineeringUnits.EngineeringUnit.GetHashCode*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_GetHashCode" data-uid="EngineeringUnits.EngineeringUnit.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Pow_" data-uid="EngineeringUnits.EngineeringUnit.Pow*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Pow_System_Double_" data-uid="EngineeringUnits.EngineeringUnit.Pow(System.Double)">
+  Pow(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises this quantity to a non-integer power. Fails (throws) if the result
+dimension is not integer-valued for every base dimension. Use the integer
+overload when applicable for cleaner semantics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EngineeringUnit Pow(double exponent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exponent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_Pow_" data-uid="EngineeringUnits.EngineeringUnit.Pow*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_Pow_System_Int32_" data-uid="EngineeringUnits.EngineeringUnit.Pow(System.Int32)">
+  Pow(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises this quantity to an integer power. The result's dimension is this
+dimension multiplied element-wise by the exponent; the runtime resolves to
+the matching subclass (e.g. <code>Length.Pow(2) → Area</code>,
+<code>Length.Pow(3) → Volume</code>) or to <a class="xref" href="EngineeringUnits.DerivedUnit.html">DerivedUnit</a> if no
+subclass matches.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EngineeringUnit Pow(int exponent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exponent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EngineeringUnits.EngineeringUnit.html">EngineeringUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_ToDualString_" data-uid="EngineeringUnits.EngineeringUnit.ToDualString*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_ToDualString" data-uid="EngineeringUnits.EngineeringUnit.ToDualString">
+  ToDualString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a two-system display like <code>&quot;0.500 m (1.640 ft)&quot;</code>. The primary is
+this quantity's current display unit; the parenthesized secondary is the
+other system (US-customary if primary is SI, or SI if primary is US-customary).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ToDualString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_ToString_" data-uid="EngineeringUnits.EngineeringUnit.ToString*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_ToString" data-uid="EngineeringUnits.EngineeringUnit.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default culture-neutral string form: value (in <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_DisplayUnit">DisplayUnit</a>, rounded
+to <a class="xref" href="EngineeringUnits.EngineeringUnit.html#EngineeringUnits_EngineeringUnit_Precision">Precision</a> significant figures) followed by the unit symbol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_ToString_" data-uid="EngineeringUnits.EngineeringUnit.ToString*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_ToString_System_String_" data-uid="EngineeringUnits.EngineeringUnit.ToString(System.String)">
+  ToString(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string? format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EngineeringUnits_EngineeringUnit_ToString_" data-uid="EngineeringUnits.EngineeringUnit.ToString*"></a>
+
+  <h3 id="EngineeringUnits_EngineeringUnit_ToString_System_String_System_IFormatProvider_" data-uid="EngineeringUnits.EngineeringUnit.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Formats this quantity. Supported format codes (see specification §8.2 and §14.17):</p>
+<ul><li><span class="term">G or null</span>General default — short symbol.</li><li><span class="term">L</span>Long unit name (e.g. <code>"feet"</code>).</li><li><span class="term">D</span>Dual — primary value plus SI or US-customary equivalent in parens.</li><li><span class="term">S</span>SI canonical (from <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_SIScientific">SIScientific</a>).</li><li><span class="term">U</span>US-customary canonical (from <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_UsCustomary">UsCustomary</a>).</li><li><span class="term">P</span>Preferred (from <a class="xref" href="EngineeringUnits.UnitPreferences.html#EngineeringUnits_UnitPreferences_Default">Default</a>).</li><li><span class="term">E</span>Scientific notation.</li><li><span class="term">N{n}</span>Force <code>n</code> significant figures, e.g. <code>"N6"</code>.</li><li><span class="term">{unit}</span>Force a specific unit, e.g. <code>"{m}"</code>.</li></ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/src/EngineeringUnits/EngineeringUnit.cs/#L20" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

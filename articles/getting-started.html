@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started | EngineeringUnits API Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started | EngineeringUnits API Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/gchoquet/EngineeringUnits/blob/main/docs/articles/getting-started.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EngineeringUnits">
+            EngineeringUnits
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<h2 id="install">Install</h2>
+<pre><code class="lang-powershell">dotnet add package EngineeringUnits
+</code></pre>
+<h2 id="first-quantity">First quantity</h2>
+<pre><code class="lang-csharp">using EngineeringUnits;
+
+var l = new Length(5, &quot;ft&quot;);
+Console.WriteLine(l);              // &quot;5.000 ft&quot;
+Console.WriteLine(l.As(&quot;m&quot;));      // 1.524
+Console.WriteLine(l.In(&quot;m&quot;));      // &quot;1.524 m&quot;
+</code></pre>
+<h2 id="mixed-unit-arithmetic">Mixed-unit arithmetic</h2>
+<pre><code class="lang-csharp">var total = new Length(5, &quot;ft&quot;) + new Length(6, &quot;in&quot;);
+Console.WriteLine(total);          // &quot;5.500 ft&quot; — left operand's unit governs
+</code></pre>
+<h2 id="cross-type-arithmetic">Cross-type arithmetic</h2>
+<p>The compiler picks the right result type from operand types:</p>
+<pre><code class="lang-csharp">var area = new Length(3, &quot;m&quot;) * new Length(4, &quot;m&quot;);         // Area
+var v    = new Length(100, &quot;m&quot;) / new Time(10, &quot;s&quot;);        // Velocity
+var F    = new Mass(10, &quot;kg&quot;) * new Acceleration(9.81, &quot;m/s^2&quot;);  // Force (N)
+var P    = F / new Area(0.1, &quot;m^2&quot;);                        // Pressure (Pa)
+var V    = new Voltage(120, &quot;V&quot;);
+var I    = V / new ElectricResistance(60, &quot;Ω&quot;);             // ElectricCurrent (Ohm's law)
+var pwr  = V * I;                                            // Power (W)
+</code></pre>
+<h2 id="industry-specific-units">Industry-specific units</h2>
+<pre><code class="lang-csharp">var flow = new VolumetricFlowRate(10, &quot;MMSCFD&quot;);   // 14.73 psia / 60 °F default
+var visc = new DynamicViscosity(1.0, &quot;cP&quot;);        // water at 20 °C
+var energy = new Energy(1, &quot;MMBTU&quot;);
+</code></pre>
+<h2 id="format-codes">Format codes</h2>
+<pre><code class="lang-csharp">var dia = new Length(0.5, &quot;m&quot;);
+Console.WriteLine(dia.ToString(&quot;L&quot;));    // &quot;0.5000 meter&quot;
+Console.WriteLine(dia.ToString(&quot;U&quot;));    // &quot;1.640 ft&quot;   (US-customary)
+Console.WriteLine(dia.ToString(&quot;D&quot;));    // &quot;0.5000 m (1.640 ft)&quot;   (dual)
+Console.WriteLine(dia.ToString(&quot;N6&quot;));   // &quot;0.500000 m&quot;  (force 6 sig figs)
+Console.WriteLine(dia.ToString(&quot;{cm}&quot;)); // &quot;50.00 cm&quot;    (force unit)
+</code></pre>
+<h2 id="preferred-unit-profiles">Preferred unit profiles</h2>
+<pre><code class="lang-csharp">UnitPreferences.Default = UnitPreferences.OilAndGas;
+Console.WriteLine(new Pressure(1, &quot;atm&quot;).ToString(&quot;P&quot;));   // displays in psia
+Console.WriteLine(new Volume(1, &quot;m^3&quot;).ToString(&quot;P&quot;));     // displays in bbl
+</code></pre>
+<p>Built-in profiles: <code>SIScientific</code>, <code>SIEveryday</code>, <code>UsCustomary</code>, <code>UsEngineering</code>, <code>OilAndGas</code>, <code>Machining</code>.</p>
+<h2 id="temperature-arithmetic">Temperature arithmetic</h2>
+<p>Adding two absolute temperatures throws (physically meaningless). Subtraction produces a <code>TemperatureDelta</code>:</p>
+<pre><code class="lang-csharp">var t1 = new Temperature(30, &quot;degC&quot;);
+var t2 = new Temperature(20, &quot;degC&quot;);
+var dt = t1 - t2;                                  // TemperatureDelta of 10 degC
+var t3 = t1 + new TemperatureDelta(5, &quot;degC&quot;);     // Temperature of 35 degC
+</code></pre>
+<h2 id="pow--abs">Pow / Abs</h2>
+<pre><code class="lang-csharp">var l = new Length(3, &quot;m&quot;);
+var a = l.Pow(2);                  // Area (9 m²)
+var v = l.Pow(3);                  // Volume (27 m³)
+var l2 = new Area(9, &quot;m^2&quot;).Pow(0.5);  // back to Length (3 m)
+
+var negL = new Length(-5, &quot;ft&quot;);
+var absL = negL.Abs();             // Length (5 ft) — preserves display unit
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/gchoquet/EngineeringUnits/blob/main/docs/articles/getting-started.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2026 Gary Choquette. MIT License.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

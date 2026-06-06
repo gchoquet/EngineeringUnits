@@ -1,0 +1,924 @@
+{
+  "source_base_path": "/home/runner/work/EngineeringUnits/EngineeringUnits/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Acceleration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Acceleration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Acceleration",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Acceleration.yml\" sourcestartlinenumber=\"1\">An acceleration quantity. SI base unit: meter per second squared (m/s²).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.AmountOfSubstance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.AmountOfSubstance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.AmountOfSubstance",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.AmountOfSubstance.yml\" sourcestartlinenumber=\"1\">An amount of substance. SI base unit: mole.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.AngularVelocity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.AngularVelocity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.AngularVelocity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.AngularVelocity.yml\" sourcestartlinenumber=\"1\">An angular velocity quantity. SI base unit: radian per second (rad/s).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Area.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Area.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Area",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Area.yml\" sourcestartlinenumber=\"1\">An area quantity. SI base unit: square meter (m²).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.AreaDensity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.AreaDensity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.AreaDensity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.AreaDensity.yml\" sourcestartlinenumber=\"1\">Area density (mass per unit area). SI base unit: kilogram per square-meter (kg/m²).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Density.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Density.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Density",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Density.yml\" sourcestartlinenumber=\"1\">A mass density quantity (mass per unit volume). SI base unit: kg/m³.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.DerivedUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.DerivedUnit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.DerivedUnit",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.DerivedUnit.yml\" sourcestartlinenumber=\"1\">A quantity whose dimension does not match any registered subclass. Returned by\narithmetic when the result combination has no dedicated type, e.g.\n<code>Mass * Length / Time^3</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.DimensionMismatchException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.DimensionMismatchException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.DimensionMismatchException",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.DimensionMismatchException.yml\" sourcestartlinenumber=\"1\">Thrown when an operation requires two quantities of the same dimension but they\ndiffer (e.g. adding a Length to a Time, or calling <code>As(&quot;ft&quot;)</code> on a Mass).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.DimensionSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.DimensionSignature.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.DimensionSignature",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.DimensionSignature.yml\" sourcestartlinenumber=\"1\">The physical dimension of a quantity, expressed as a signed exponent for each\nSI base dimension plus a pseudo-dimension for plane angle (radians).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.DimensionlessQuantity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.DimensionlessQuantity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.DimensionlessQuantity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.DimensionlessQuantity.yml\" sourcestartlinenumber=\"1\">A quantity with no physical dimension — a pure number. Produced by arithmetic\nthat reduces to all-zero dimensions (e.g. velocity / velocity, length / length).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.DynamicViscosity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.DynamicViscosity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.DynamicViscosity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.DynamicViscosity.yml\" sourcestartlinenumber=\"1\">Dynamic (absolute) viscosity. SI base unit: pascal-second (Pa·s).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.ElectricCapacitance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.ElectricCapacitance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.ElectricCapacitance",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.ElectricCapacitance.yml\" sourcestartlinenumber=\"1\">Electric capacitance. SI unit: farad (F = C/V).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.ElectricCharge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.ElectricCharge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.ElectricCharge",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.ElectricCharge.yml\" sourcestartlinenumber=\"1\">Electric charge. SI unit: coulomb (C = A·s).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.ElectricCurrent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.ElectricCurrent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.ElectricCurrent",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.ElectricCurrent.yml\" sourcestartlinenumber=\"1\">Electric current. SI base unit: ampere (A).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.ElectricResistance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.ElectricResistance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.ElectricResistance",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.ElectricResistance.yml\" sourcestartlinenumber=\"1\">Electric resistance. SI unit: ohm (Ω = V/A).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.ElectricalConductance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.ElectricalConductance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.ElectricalConductance",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.ElectricalConductance.yml\" sourcestartlinenumber=\"1\">Electrical conductance (reciprocal of resistance). SI unit: siemens (S = 1/Ω).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Energy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Energy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Energy",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Energy.yml\" sourcestartlinenumber=\"1\">An energy / work quantity. SI base unit: joule (J).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.EnergyDensity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.EnergyDensity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.EnergyDensity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.EnergyDensity.yml\" sourcestartlinenumber=\"1\">Energy density (energy per unit volume). SI base unit: joule per cubic-meter (J/m³).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.EnergyPerArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.EnergyPerArea.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.EnergyPerArea",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.EnergyPerArea.yml\" sourcestartlinenumber=\"1\">Energy per unit area (e.g. fracture toughness E/A, surface energy).\nSI base unit: joule per square meter (J/m²). Dimensionally equal to\n<xref href=\"EngineeringUnits.SurfaceTension\" data-throw-if-not-resolved=\"false\"></xref> (M/T²) but semantically distinct — kept\nseparate for the same reason <xref href=\"EngineeringUnits.Torque\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"EngineeringUnits.Energy\" data-throw-if-not-resolved=\"false\"></xref>\nare separate despite sharing M·L²/T².</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.EngineeringUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.EngineeringUnit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.EngineeringUnit",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.EngineeringUnit.yml\" sourcestartlinenumber=\"1\">Abstract base class for all physical-quantity types. Carries a value expressed\nin canonical SI base units, a display unit, and significant-figure metadata.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.EngineeringUnitException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.EngineeringUnitException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.EngineeringUnitException",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.EngineeringUnitException.yml\" sourcestartlinenumber=\"1\">Base class for all exceptions thrown by this library.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Force.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Force.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Force",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Force.yml\" sourcestartlinenumber=\"1\">A force quantity. SI base unit: newton (N).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Frequency.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Frequency.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Frequency",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Frequency.yml\" sourcestartlinenumber=\"1\">A frequency quantity. SI base unit: hertz (Hz = 1/s).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.HeatCapacity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.HeatCapacity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.HeatCapacity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.HeatCapacity.yml\" sourcestartlinenumber=\"1\">Heat capacity (per object, not per mass). SI base unit: joule per kelvin (J/K).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.HeatFluxDensity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.HeatFluxDensity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.HeatFluxDensity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.HeatFluxDensity.yml\" sourcestartlinenumber=\"1\">Heat flux density (power per unit area). SI base unit: watt per square-meter (W/m²).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Inductance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Inductance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Inductance",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Inductance.yml\" sourcestartlinenumber=\"1\">Electrical inductance. SI unit: henry (H = V·s/A = Wb/A).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.KinematicViscosity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.KinematicViscosity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.KinematicViscosity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.KinematicViscosity.yml\" sourcestartlinenumber=\"1\">Kinematic viscosity (dynamic viscosity divided by density). SI base unit: square-meter per second (m²/s).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Length.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Length.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Length",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Length.yml\" sourcestartlinenumber=\"1\">A length quantity. SI base unit: meter.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Mass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Mass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Mass",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Mass.yml\" sourcestartlinenumber=\"1\">A mass quantity. SI base unit: kilogram.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.MassFlowRate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.MassFlowRate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.MassFlowRate",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.MassFlowRate.yml\" sourcestartlinenumber=\"1\">A mass flow rate (mass per unit time). SI base unit: kg/s.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.MixtureMolarConversions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.MixtureMolarConversions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.MixtureMolarConversions",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.MixtureMolarConversions.yml\" sourcestartlinenumber=\"1\">Bridges molar-basis quantities (e.g. <xref href=\"EngineeringUnits.MolarEnergy\" data-throw-if-not-resolved=\"false\"></xref> in J/mol)\nto mass-basis quantities (e.g. <xref href=\"EngineeringUnits.SpecificEnergy\" data-throw-if-not-resolved=\"false\"></xref> in J/kg) and\nback, using a mixture's <xref href=\"EngineeringUnits.MolarMass\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.MolarDensity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.MolarDensity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.MolarDensity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.MolarDensity.yml\" sourcestartlinenumber=\"1\">A molar density quantity. SI canonical: mol/m³ (dimension N/L³).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.MolarEnergy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.MolarEnergy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.MolarEnergy",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.MolarEnergy.yml\" sourcestartlinenumber=\"1\">A molar energy quantity. SI canonical unit: J/mol (dimension L²·M/(T²·N)).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.MolarHeatCapacity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.MolarHeatCapacity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.MolarHeatCapacity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.MolarHeatCapacity.yml\" sourcestartlinenumber=\"1\">A molar heat-capacity (or molar entropy) quantity. SI canonical: J/(mol·K).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.MolarMass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.MolarMass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.MolarMass",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.MolarMass.yml\" sourcestartlinenumber=\"1\">A molar mass quantity. SI canonical unit: kg/mol (dimension M/N).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Momentum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Momentum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Momentum",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Momentum.yml\" sourcestartlinenumber=\"1\">Linear momentum (mass × velocity). SI base unit: kilogram-meter per second (kg·m/s).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.NotationStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.NotationStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.NotationStyle",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.NotationStyle.yml\" sourcestartlinenumber=\"1\">Notation style for compound units in formatted output.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.PlaneAngle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.PlaneAngle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.PlaneAngle",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.PlaneAngle.yml\" sourcestartlinenumber=\"1\">A plane angle quantity. SI base unit: radian (rad).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Power.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Power.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Power",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Power.yml\" sourcestartlinenumber=\"1\">A power quantity. SI base unit: watt (W).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Pressure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Pressure.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Pressure",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Pressure.yml\" sourcestartlinenumber=\"1\">A pressure quantity. SI base unit: pascal (Pa).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.SpecificEnergy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.SpecificEnergy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.SpecificEnergy",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.SpecificEnergy.yml\" sourcestartlinenumber=\"1\">Specific energy (energy per unit mass). SI base unit: joule per kilogram (J/kg).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.SpecificHeatCapacity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.SpecificHeatCapacity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.SpecificHeatCapacity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.SpecificHeatCapacity.yml\" sourcestartlinenumber=\"1\">Specific heat capacity (per unit mass). SI base unit: joule per kilogram-kelvin (J/(kg·K)).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.SpecificVolume.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.SpecificVolume.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.SpecificVolume",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.SpecificVolume.yml\" sourcestartlinenumber=\"1\">Specific volume (volume per unit mass — reciprocal of density). SI base unit: cubic-meter per kilogram (m³/kg).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.SurfaceTension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.SurfaceTension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.SurfaceTension",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.SurfaceTension.yml\" sourcestartlinenumber=\"1\">Surface tension (force per unit length). SI base unit: newton per meter (N/m).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Temperature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Temperature.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Temperature",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Temperature.yml\" sourcestartlinenumber=\"1\">An absolute temperature. SI base unit: kelvin.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.TemperatureDelta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.TemperatureDelta.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.TemperatureDelta",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.TemperatureDelta.yml\" sourcestartlinenumber=\"1\">A temperature difference (delta). Distinct from <xref href=\"EngineeringUnits.Temperature\" data-throw-if-not-resolved=\"false\"></xref> because\ntemperature differences obey linear-only conversion (no offset), while absolute\ntemperatures use affine conversion.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.ThermalConductivity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.ThermalConductivity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.ThermalConductivity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.ThermalConductivity.yml\" sourcestartlinenumber=\"1\">Thermal conductivity. SI base unit: watt per meter-kelvin (W/(m·K)).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Time.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Time.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Time",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Time.yml\" sourcestartlinenumber=\"1\">A time-duration quantity. SI base unit: second.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Torque.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Torque.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Torque",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Torque.yml\" sourcestartlinenumber=\"1\">A torque (moment of force) quantity. SI base unit: newton-meter (N·m).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Unit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Unit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Unit",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Unit.yml\" sourcestartlinenumber=\"1\">A unit of measurement: a name, a dimension, and conversion factors to/from\nthe canonical SI-base value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.UnitCatalog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.UnitCatalog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.UnitCatalog",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.UnitCatalog.yml\" sourcestartlinenumber=\"1\">The library's catalog of recognized units. Populated once at module load and\nthen frozen — concurrent reads are safe without locking.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.UnitParseException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.UnitParseException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.UnitParseException",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.UnitParseException.yml\" sourcestartlinenumber=\"1\">Thrown when a value+unit string cannot be parsed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.UnitPreferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.UnitPreferences.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.UnitPreferences",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.UnitPreferences.yml\" sourcestartlinenumber=\"1\">Per-dimension display-unit preferences plus notation style. Used by the\n<code>&quot;P&quot;</code> format code and by <xref href=\"EngineeringUnits.EngineeringUnit.ToDualString\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.UnknownUnitException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.UnknownUnitException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.UnknownUnitException",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.UnknownUnitException.yml\" sourcestartlinenumber=\"1\">Thrown when a unit symbol is not registered in the catalog.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Velocity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Velocity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Velocity",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Velocity.yml\" sourcestartlinenumber=\"1\">A velocity (linear speed) quantity. SI base unit: meter per second (m/s).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Voltage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Voltage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Voltage",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Voltage.yml\" sourcestartlinenumber=\"1\">Electrical potential difference (voltage). SI unit: volt (V = W/A = J/C).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.Volume.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.Volume.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.Volume",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.Volume.yml\" sourcestartlinenumber=\"1\">A volume quantity. SI base unit: cubic meter (m³).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.VolumetricFlowRate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.VolumetricFlowRate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits.VolumetricFlowRate",
+      "Summary": "<p sourcefile=\"api/EngineeringUnits.VolumetricFlowRate.yml\" sourcestartlinenumber=\"1\">A volumetric flow rate (volume per unit time). SI base unit: m³/s.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EngineeringUnits.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EngineeringUnits.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EngineeringUnits",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/catalog.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/catalog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/design.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/design.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "articles/toc.json"
+        },
+        ".html": {
+          "relative_path": "articles/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
